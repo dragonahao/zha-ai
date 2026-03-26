@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>医生登录页</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      min-height: 100vh;
+      background: #F5F5FE;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      padding: 0;
+    }
+
+    /* 页面根容器 */
+    .container {
+      width: 375px;
+      height: 812px;
+      background: #F5F5FE;
+      border-radius: 32px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* 状态栏 */
+    .status-bar {
+      width: 100%;
+      height: 44px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .time {
+      font-size: 15px;
+      font-weight: 400;
+      color: #000;
+    }
+
+    .status-right {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .battery {
+      width: 22px;
+      height: 11px;
+      border: 1px solid #000;
+      border-radius: 3px;
+      opacity: 0.35;
+      position: relative;
+    }
+
+    .battery-inner {
+      width: 18px;
+      height: 7px;
+      background: #000;
+      border-radius: 1px;
+      position: absolute;
+      left: 2px;
+      top: 2px;
+    }
+
+    .battery-cap {
+      width: 1px;
+      height: 4px;
+      background: #000;
+      opacity: 0.4;
+      position: absolute;
+      right: -2px;
+      top: 3.5px;
+    }
+
+    .icon-cell, .icon-wifi {
+      width: 17px;
+      height: 11px;
+      background: #000;
+    }
+
+    /* 返回图标 */
+    .back {
+      width: 20px;
+      height: 20px;
+      margin: 12px 24px;
+      background: #2E374C;
+    }
+
+    /* 头部卡片 */
+    .header {
+      width: 330px;
+      height: 210px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .card {
+      width: 265px;
+      height: 130px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.12), rgba(255,255,255,0.5));
+      border: 1px solid #fff;
+      border-radius: 16px;
+      box-shadow: 0 24px 32px rgba(68,70,178,0.1);
+      padding: 20px 24px;
+      margin: 38px auto 0;
+    }
+
+    .welcome {
+      font-size: 18px;
+      color: #1F1F1F;
+      margin-bottom: 8px;
+    }
+
+    .title {
+      font-size: 24px;
+      font-weight: 500;
+      color: #6A73C7;
+    }
+
+    /* 登录标题 */
+    .login-title {
+      text-align: center;
+      font-size: 20px;
+      color: #2A2A2A;
+      margin: 20px 0 30px;
+    }
+
+    /* 输入框 */
+    .form {
+      width: 315px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .input-item {
+      height: 56px;
+      background: #fff;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      padding: 0 16px;
+      gap: 12px;
+    }
+
+    .input-icon {
+      width: 24px;
+      height: 24px;
+      background: #909BFF;
+      border-radius: 50%;
+    }
+
+    .input-text {
+      flex: 1;
+      font-size: 18px;
+      color: rgba(0,0,0,0.4);
+    }
+
+    .code-btn {
+      font-size: 18px;
+      color: #6977B4;
+    }
+
+    /* 用户协议 */
+    .agreement {
+      width: 315px;
+      margin: 24px auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .checkbox {
+      width: 14px;
+      height: 14px;
+      background: #909BFF;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .check-inner {
+      width: 7px;
+      height: 5px;
+      background: #fff;
+    }
+
+    .agree-text {
+      font-size: 13px;
+      color: #555;
+    }
+
+    .link {
+      color: #181818;
+      font-weight: 500;
+    }
+
+    /* 登录按钮 */
+    .login-btn {
+      width: 300px;
+      height: 50px;
+      background: linear-gradient(135deg, #D1D6FB, #A5ADF6);
+      border-radius: 50px;
+      margin: 20px auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: -3px -3px 10px #fff;
+    }
+
+    .login-btn span {
+      font-size: 20px;
+      font-weight: 500;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- 状态栏 -->
+    <div class="status-bar">
+      <div class="time">9:41</div>
+      <div class="status-right">
+        <div class="icon-cell"></div>
+        <div class="icon-wifi"></div>
+        <div class="battery">
+          <div class="battery-inner"></div>
+          <div class="battery-cap"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 返回 -->
+    <div class="back"></div>
+
+    <!-- 头部卡片 -->
+    <div class="header">
+      <div class="card">
+        <div class="welcome">欢迎来到</div>
+        <div class="title">咳搜 慢阻肺辅助诊断</div>
+      </div>
+    </div>
+
+    <!-- 登录标题 -->
+    <div class="login-title">医生请登录</div>
+
+    <!-- 输入框 -->
+    <div class="form">
+      <div class="input-item">
+        <div class="input-icon"></div>
+        <div class="input-text">医生手机号</div>
+      </div>
+      <div class="input-item">
+        <div class="input-icon"></div>
+        <div class="input-text">验证码</div>
+        <div class="code-btn">发送验证码</div>
+      </div>
+    </div>
+
+    <!-- 用户协议 -->
+    <div class="agreement">
+      <div class="checkbox">
+        <div class="check-inner"></div>
+      </div>
+      <div class="agree-text">
+        我已阅读并同意<span class="link">《用户服务协议》</span>和<span class="link">《隐私政策》</span>
+      </div>
+    </div>
+
+    <!-- 登录按钮 -->
+    <div class="login-btn">
+      <span>登录</span>
+    </div>
+  </div>
+
+</body>
+</html>

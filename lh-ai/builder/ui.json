@@ -1,0 +1,2337 @@
+{
+  "timestamp": "2026-03-25T08:50:05.408Z",
+  "url": "https://lanhuapp.com/web/#/item/project/detailDetach?type=image&pid=0a69a0d3-75ce-48bc-ad43-a861e1105d7e&teamId=43f53dca-daf2-4874-982b-82efaf4d2887&project_id=0a69a0d3-75ce-48bc-ad43-a861e1105d7e&image_id=36b6adf0-ae32-45f5-957a-dcc9c33facfc&fromEditor=true",
+  "totalElements": 44,
+  "analyzedElements": 44,
+  "results": [
+    {
+      "index": 1,
+      "dataIndex": "0",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "登录管理员账号",
+            "位置": "0px",
+            "大小": "375px 812px",
+            "圆角": "32px  32px  32px  32px"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "0px",
+            "y": "0px"
+          },
+          "size": {
+            "width": "375px",
+            "height": "812px"
+          },
+          "type": "container"
+        },
+        {
+          "subtitle": "颜色",
+          "properties": {},
+          "colors": [
+            {
+              "background": "background: rgb(245, 245, 254);",
+              "values": [
+                "#F5F5FE",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 375px;\nheight: 812px;\n\nbackground: #F5F5FE;\nborder-radius: 32px 32px 32px 32px;"
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "dataIndex": "1",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "Bars / Status Bar / iPhone / Light",
+            "位置": "0px",
+            "大小": "375px 44px",
+            "不透明度": "100%",
+            "圆角": "0px 0px 0px 0px"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "0px",
+            "y": "0px"
+          },
+          "size": {
+            "width": "375px",
+            "height": "44px"
+          },
+          "type": "container"
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 375px;\nheight: 44px;\n\nborder-radius: 0px 0px 0px 0px;"
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "dataIndex": "2",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "Border",
+            "位置": "336.33px 17.33px",
+            "大小": "22px 11.33px",
+            "不透明度": "35%",
+            "圆角": "2.67px 2.67px 2.67px 2.67px"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "336.33px",
+            "y": "17.33px"
+          },
+          "size": {
+            "width": "22px",
+            "height": "11.33px"
+          },
+          "type": "container"
+        },
+        {
+          "subtitle": "内边框",
+          "properties": {
+            "粗细": "1px"
+          },
+          "colors": [
+            {
+              "background": "background: rgb(0, 0, 0);",
+              "values": [
+                "#000000",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 22px;\nheight: 11px;\n\nborder-radius: 3px 3px 3px 3px;\nborder: 1px solid #000000;\n\nopacity: 0.35;"
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "dataIndex": "3",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "Cap",
+            "位置": "359.33px 21px",
+            "大小": "1.33px 4px",
+            "不透明度": "40%"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "359.33px",
+            "y": "21px"
+          },
+          "size": {
+            "width": "1.33px",
+            "height": "4px"
+          },
+          "type": "container"
+        },
+        {
+          "subtitle": "颜色",
+          "properties": {},
+          "colors": [
+            {
+              "background": "background: rgb(0, 0, 0);",
+              "values": [
+                "#000000",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 1px;\nheight: 4px;\n\nbackground: #000000;\n\nopacity: 0.4;"
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "dataIndex": "4",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "Capacity",
+            "位置": "338.33px 19.33px",
+            "大小": "18px 7.33px",
+            "不透明度": "100%",
+            "圆角": "1.33px 1.33px 1.33px 1.33px"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "338.33px",
+            "y": "19.33px"
+          },
+          "size": {
+            "width": "18px",
+            "height": "7.33px"
+          },
+          "type": "container"
+        },
+        {
+          "subtitle": "颜色",
+          "properties": {},
+          "colors": [
+            {
+              "background": "background: rgb(0, 0, 0);",
+              "values": [
+                "#000000",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 18px;\nheight: 7px;\n\nbackground: #000000;\nborder-radius: 1px 1px 1px 1px;"
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "dataIndex": "5",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "Wifi",
+            "位置": "316px 17.33px",
+            "大小": "15.33px 11px",
+            "不透明度": "100%"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "316px",
+            "y": "17.33px"
+          },
+          "size": {
+            "width": "15.33px",
+            "height": "11px"
+          },
+          "type": "container"
+        },
+        {
+          "subtitle": "颜色",
+          "properties": {},
+          "colors": [
+            {
+              "background": "background: rgb(0, 0, 0);",
+              "values": [
+                "#000000",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 15px;\nheight: 11px;\n\nbackground: #000000;"
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "dataIndex": "6",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "Wifi-path",
+            "位置": "316px 17.33px",
+            "大小": "15.33px 4.76px",
+            "不透明度": "100%"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "316px",
+            "y": "17.33px"
+          },
+          "size": {
+            "width": "15.33px",
+            "height": "4.76px"
+          },
+          "type": "container"
+        },
+        {
+          "subtitle": "颜色",
+          "properties": {},
+          "colors": [
+            {
+              "background": "background: rgb(0, 0, 0);",
+              "values": [
+                "#000000",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 15px;\nheight: 5px;\n\nbackground: #000000;"
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "dataIndex": "7",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "Wifi-path",
+            "位置": "318.67px 21.14px",
+            "大小": "9.99px 3.65px",
+            "不透明度": "100%"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "318.67px",
+            "y": "21.14px"
+          },
+          "size": {
+            "width": "9.99px",
+            "height": "3.65px"
+          },
+          "type": "container"
+        },
+        {
+          "subtitle": "颜色",
+          "properties": {},
+          "colors": [
+            {
+              "background": "background: rgb(0, 0, 0);",
+              "values": [
+                "#000000",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 10px;\nheight: 4px;\n\nbackground: #000000;"
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "dataIndex": "8",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "Wifi-path",
+            "位置": "321.34px 24.95px",
+            "大小": "4.64px 3.39px",
+            "不透明度": "100%"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "321.34px",
+            "y": "24.95px"
+          },
+          "size": {
+            "width": "4.64px",
+            "height": "3.39px"
+          },
+          "type": "container"
+        },
+        {
+          "subtitle": "颜色",
+          "properties": {},
+          "colors": [
+            {
+              "background": "background: rgb(0, 0, 0);",
+              "values": [
+                "#000000",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "切图",
+          "properties": {
+            "切图名称": "Wifi-path"
+          },
+          "colors": [],
+          "code": ""
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "dataIndex": "9",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "Cellular Connection",
+            "位置": "294px 17.67px",
+            "大小": "17px 10.67px",
+            "不透明度": "100%"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "294px",
+            "y": "17.67px"
+          },
+          "size": {
+            "width": "17px",
+            "height": "10.67px"
+          },
+          "type": "container"
+        },
+        {
+          "subtitle": "颜色",
+          "properties": {},
+          "colors": [
+            {
+              "background": "background: rgb(0, 0, 0);",
+              "values": [
+                "#000000",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 17px;\nheight: 11px;\n\nbackground: #000000;"
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "dataIndex": "10",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "Cellular-Connection-path",
+            "位置": "294px 24.33px",
+            "大小": "3px 4px",
+            "不透明度": "100%"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "294px",
+            "y": "24.33px"
+          },
+          "size": {
+            "width": "3px",
+            "height": "4px"
+          },
+          "type": "container"
+        },
+        {
+          "subtitle": "颜色",
+          "properties": {},
+          "colors": [
+            {
+              "background": "background: rgb(0, 0, 0);",
+              "values": [
+                "#000000",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 3px;\nheight: 4px;\n\nbackground: #000000;"
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "dataIndex": "11",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "Cellular-Connection-path",
+            "位置": "298.67px 22.33px",
+            "大小": "3px 6px",
+            "不透明度": "100%"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "298.67px",
+            "y": "22.33px"
+          },
+          "size": {
+            "width": "3px",
+            "height": "6px"
+          },
+          "type": "container"
+        },
+        {
+          "subtitle": "颜色",
+          "properties": {},
+          "colors": [
+            {
+              "background": "background: rgb(0, 0, 0);",
+              "values": [
+                "#000000",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 3px;\nheight: 6px;\n\nbackground: #000000;"
+        }
+      ]
+    },
+    {
+      "index": 13,
+      "dataIndex": "12",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "Cellular-Connection-path",
+            "位置": "303.33px 20px",
+            "大小": "3px 8.33px",
+            "不透明度": "100%"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "303.33px",
+            "y": "20px"
+          },
+          "size": {
+            "width": "3px",
+            "height": "8.33px"
+          },
+          "type": "container"
+        },
+        {
+          "subtitle": "颜色",
+          "properties": {},
+          "colors": [
+            {
+              "background": "background: rgb(0, 0, 0);",
+              "values": [
+                "#000000",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 3px;\nheight: 8px;\n\nbackground: #000000;"
+        }
+      ]
+    },
+    {
+      "index": 14,
+      "dataIndex": "13",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "Cellular-Connection-path",
+            "位置": "308px 17.67px",
+            "大小": "3px 10.67px",
+            "不透明度": "100%"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "308px",
+            "y": "17.67px"
+          },
+          "size": {
+            "width": "3px",
+            "height": "10.67px"
+          },
+          "type": "container"
+        },
+        {
+          "subtitle": "颜色",
+          "properties": {},
+          "colors": [
+            {
+              "background": "background: rgb(0, 0, 0);",
+              "values": [
+                "#000000",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 3px;\nheight: 11px;\n\nbackground: #000000;"
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "dataIndex": "14",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "Time Style",
+            "位置": "21px 7px",
+            "大小": "54px 21px",
+            "不透明度": "100%",
+            "圆角": "0px 0px 0px 0px"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "21px",
+            "y": "7px"
+          },
+          "size": {
+            "width": "54px",
+            "height": "21px"
+          },
+          "type": "container"
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 54px;\nheight: 21px;\n\nborder-radius: 0px 0px 0px 0px;"
+        }
+      ]
+    },
+    {
+      "index": 16,
+      "dataIndex": "15",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "09:41",
+            "位置": "21px 13px",
+            "大小": "54px 20px",
+            "不透明度": "100%"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "21px",
+            "y": "13px"
+          },
+          "size": {
+            "width": "54px",
+            "height": "20px"
+          },
+          "type": "text"
+        },
+        {
+          "subtitle": "文本",
+          "properties": {
+            "文本样式": "SF/Subheadline - Semibold",
+            "字重": "Regular",
+            "对齐": "居中对齐",
+            "字号": "15px",
+            "空间": {
+              "value": "-0.24px",
+              "desc": "字间距"
+            },
+            "行高": "20px",
+            "内容": "9:41"
+          },
+          "colors": [
+            {
+              "background": "background: rgb(0, 0, 0);",
+              "values": [
+                "#000000",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "颜色",
+          "properties": {},
+          "colors": [
+            {
+              "background": "background: rgb(0, 0, 0);",
+              "values": [
+                "#000000",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 54px;\nheight: 20px;\n\n\nfont-weight: 400;\nfont-size: 15px;\ncolor: #000000;\nline-height: 20px;\ntext-align: center;\nfont-style: normal;\ntext-transform: none;"
+        }
+      ]
+    },
+    {
+      "index": 17,
+      "dataIndex": "16",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "矩形",
+            "位置": "38px 642px",
+            "大小": "300px 50px",
+            "不透明度": "100%",
+            "圆角": "352.5px 352.5px 352.5px 352.5px"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "38px",
+            "y": "642px"
+          },
+          "size": {
+            "width": "300px",
+            "height": "50px"
+          },
+          "type": "container"
+        },
+        {
+          "subtitle": "颜色",
+          "properties": {},
+          "colors": [
+            {
+              "background": "background: rgb(209, 214, 251);",
+              "values": [
+                "#D1D6FB",
+                "100%"
+              ]
+            },
+            {
+              "background": "background: rgb(165, 173, 246);",
+              "values": [
+                "#A5ADF6",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "外阴影",
+          "properties": {
+            "Offset": "-3px\nX -3px\nY",
+            "Effect": "10px\nblur 0px\nspread",
+            "颜色": "#FFFFFF 100%"
+          },
+          "colors": [
+            {
+              "background": "background: rgb(255, 255, 255);",
+              "values": [
+                "#FFFFFF",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 300px;\nheight: 50px;\n\nbackground: linear-gradient( 135deg, #D1D6FB 0%, #A5ADF6 100%);\nbox-shadow: -3px -3px 10px 0px #FFFFFF;\nborder-radius: 353px 353px 353px 353px;"
+        }
+      ]
+    },
+    {
+      "index": 18,
+      "dataIndex": "17",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "登录",
+            "位置": "168px 653px",
+            "大小": "40px 28px",
+            "不透明度": "100%"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "168px",
+            "y": "653px"
+          },
+          "size": {
+            "width": "40px",
+            "height": "28px"
+          },
+          "type": "text"
+        },
+        {
+          "subtitle": "文本",
+          "properties": {
+            "字重": "500",
+            "对齐": "左对齐",
+            "字号": "20px",
+            "空间": {
+              "value": "0%",
+              "desc": "字间距"
+            },
+            "行高": "28px",
+            "内容": "登录"
+          },
+          "colors": [
+            {
+              "background": "background: rgb(255, 255, 255);",
+              "values": [
+                "#FFFFFF",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "颜色",
+          "properties": {},
+          "colors": [
+            {
+              "background": "background: rgb(255, 255, 255);",
+              "values": [
+                "#FFFFFF",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 40px;\nheight: 28px;\n\n\nfont-weight: 500;\nfont-size: 20px;\ncolor: #FFFFFF;\nline-height: 28px;\ntext-align: left;\nfont-style: normal;\ntext-transform: none;"
+        }
+      ]
+    },
+    {
+      "index": 19,
+      "dataIndex": "18",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "Rectangle 20",
+            "位置": "30px 366px",
+            "大小": "315px 56px",
+            "不透明度": "100%",
+            "圆角": "20px 20px 20px 20px"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "30px",
+            "y": "366px"
+          },
+          "size": {
+            "width": "315px",
+            "height": "56px"
+          },
+          "type": "container"
+        },
+        {
+          "subtitle": "颜色",
+          "properties": {},
+          "colors": [
+            {
+              "background": "background: rgb(255, 255, 255);",
+              "values": [
+                "#FFFFFF",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 315px;\nheight: 56px;\n\nbackground: #FFFFFF;\nborder-radius: 20px 20px 20px 20px;"
+        }
+      ]
+    },
+    {
+      "index": 20,
+      "dataIndex": "19",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "医生手机号",
+            "位置": "80px 382px",
+            "大小": "90px 24px",
+            "不透明度": "100%"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "80px",
+            "y": "382px"
+          },
+          "size": {
+            "width": "90px",
+            "height": "24px"
+          },
+          "type": "text"
+        },
+        {
+          "subtitle": "文本",
+          "properties": {
+            "字重": "400",
+            "对齐": "左对齐",
+            "字号": "18px",
+            "空间": {
+              "value": "0px",
+              "desc": "字间距"
+            },
+            "行高": "24px",
+            "内容": "医生手机号"
+          },
+          "colors": [
+            {
+              "background": "background: rgba(0, 0, 0, 0.4);",
+              "values": [
+                "#000000",
+                "40%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "颜色",
+          "properties": {},
+          "colors": [
+            {
+              "background": "background: rgba(0, 0, 0, 0.4);",
+              "values": [
+                "#000000",
+                "40%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 90px;\nheight: 24px;\n\n\nfont-weight: 400;\nfont-size: 18px;\ncolor: rgba(0,0,0,0.4);\nline-height: 24px;\ntext-align: left;\nfont-style: normal;\ntext-transform: none;"
+        }
+      ]
+    },
+    {
+      "index": 21,
+      "dataIndex": "20",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "phone-line",
+            "位置": "46px 382px",
+            "大小": "24px",
+            "不透明度": "100%",
+            "圆角": "0px 0px 0px 0px"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "46px",
+            "y": "382px"
+          },
+          "size": {
+            "width": "24px",
+            "height": "24px"
+          },
+          "type": "container"
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 24px;\nheight: 24px;\n\nborder-radius: 0px 0px 0px 0px;"
+        }
+      ]
+    },
+    {
+      "index": 22,
+      "dataIndex": "21",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "路径",
+            "位置": "49px 385px",
+            "大小": "18px",
+            "不透明度": "100%"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "49px",
+            "y": "385px"
+          },
+          "size": {
+            "width": "18px",
+            "height": "18px"
+          },
+          "type": "container"
+        },
+        {
+          "subtitle": "颜色",
+          "properties": {},
+          "colors": [
+            {
+              "background": "background: rgb(144, 155, 255);",
+              "values": [
+                "#909BFF",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "中心边框",
+          "properties": {
+            "粗细": "0.4px"
+          },
+          "colors": [
+            {
+              "background": "background: rgb(255, 255, 255);",
+              "values": [
+                "#FFFFFF",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 18px;\nheight: 18px;\n\nbackground: #909BFF;\nborder: 0px solid #FFFFFF;"
+        }
+      ]
+    },
+    {
+      "index": 23,
+      "dataIndex": "22",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "ic_phone",
+            "位置": "46px 382px",
+            "大小": "24px",
+            "不透明度": "100%"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "46px",
+            "y": "382px"
+          },
+          "size": {
+            "width": "24px",
+            "height": "24px"
+          },
+          "type": "image"
+        },
+        {
+          "subtitle": "切图",
+          "properties": {
+            "切图名称": "ic_phone"
+          },
+          "colors": [],
+          "code": ""
+        }
+      ]
+    },
+    {
+      "index": 24,
+      "dataIndex": "23",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "Rectangle 20",
+            "位置": "30px 442px",
+            "大小": "315px 56px",
+            "不透明度": "100%",
+            "圆角": "20px 20px 20px 20px"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "30px",
+            "y": "442px"
+          },
+          "size": {
+            "width": "315px",
+            "height": "56px"
+          },
+          "type": "container"
+        },
+        {
+          "subtitle": "颜色",
+          "properties": {},
+          "colors": [
+            {
+              "background": "background: rgb(255, 255, 255);",
+              "values": [
+                "#FFFFFF",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 315px;\nheight: 56px;\n\nbackground: #FFFFFF;\nborder-radius: 20px 20px 20px 20px;"
+        }
+      ]
+    },
+    {
+      "index": 25,
+      "dataIndex": "24",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "验证码",
+            "位置": "80px 458px",
+            "大小": "54px 24px",
+            "不透明度": "100%"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "80px",
+            "y": "458px"
+          },
+          "size": {
+            "width": "54px",
+            "height": "24px"
+          },
+          "type": "text"
+        },
+        {
+          "subtitle": "文本",
+          "properties": {
+            "字重": "400",
+            "对齐": "左对齐",
+            "字号": "18px",
+            "空间": {
+              "value": "0px",
+              "desc": "字间距"
+            },
+            "行高": "24px",
+            "内容": "验证码"
+          },
+          "colors": [
+            {
+              "background": "background: rgba(0, 0, 0, 0.4);",
+              "values": [
+                "#000000",
+                "40%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "颜色",
+          "properties": {},
+          "colors": [
+            {
+              "background": "background: rgba(0, 0, 0, 0.4);",
+              "values": [
+                "#000000",
+                "40%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 54px;\nheight: 24px;\n\n\nfont-weight: 400;\nfont-size: 18px;\ncolor: rgba(0,0,0,0.4);\nline-height: 24px;\ntext-align: left;\nfont-style: normal;\ntext-transform: none;"
+        }
+      ]
+    },
+    {
+      "index": 26,
+      "dataIndex": "25",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "发送验证码",
+            "位置": "235px 458px",
+            "大小": "90px 24px",
+            "不透明度": "100%"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "235px",
+            "y": "458px"
+          },
+          "size": {
+            "width": "90px",
+            "height": "24px"
+          },
+          "type": "text"
+        },
+        {
+          "subtitle": "文本",
+          "properties": {
+            "字重": "400",
+            "对齐": "左对齐",
+            "字号": "18px",
+            "空间": {
+              "value": "0px",
+              "desc": "字间距"
+            },
+            "行高": "24px",
+            "内容": "发送验证码"
+          },
+          "colors": [
+            {
+              "background": "background: rgb(105, 119, 180);",
+              "values": [
+                "#6977B4",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "颜色",
+          "properties": {},
+          "colors": [
+            {
+              "background": "background: rgb(105, 119, 180);",
+              "values": [
+                "#6977B4",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 90px;\nheight: 24px;\n\n\nfont-weight: 400;\nfont-size: 18px;\ncolor: #6977B4;\nline-height: 24px;\ntext-align: left;\nfont-style: normal;\ntext-transform: none;"
+        }
+      ]
+    },
+    {
+      "index": 27,
+      "dataIndex": "26",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "shield-check-line",
+            "位置": "46px 458px",
+            "大小": "24px",
+            "不透明度": "100%",
+            "圆角": "0px 0px 0px 0px"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "46px",
+            "y": "458px"
+          },
+          "size": {
+            "width": "24px",
+            "height": "24px"
+          },
+          "type": "container"
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 24px;\nheight: 24px;\n\nborder-radius: 0px 0px 0px 0px;"
+        }
+      ]
+    },
+    {
+      "index": 28,
+      "dataIndex": "27",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "路径",
+            "位置": "49.9px 460.1px",
+            "大小": "16.2px 19.8px",
+            "不透明度": "100%"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "49.9px",
+            "y": "460.1px"
+          },
+          "size": {
+            "width": "16.2px",
+            "height": "19.8px"
+          },
+          "type": "container"
+        },
+        {
+          "subtitle": "颜色",
+          "properties": {},
+          "colors": [
+            {
+              "background": "background: rgb(144, 155, 255);",
+              "values": [
+                "#909BFF",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "中心边框",
+          "properties": {
+            "粗细": "0.2px"
+          },
+          "colors": [
+            {
+              "background": "background: rgb(255, 255, 255);",
+              "values": [
+                "#FFFFFF",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 16px;\nheight: 20px;\n\nbackground: #909BFF;\nborder: 0px solid #FFFFFF;"
+        }
+      ]
+    },
+    {
+      "index": 29,
+      "dataIndex": "28",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "ic_check",
+            "位置": "46px 458px",
+            "大小": "24px",
+            "不透明度": "100%"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "46px",
+            "y": "458px"
+          },
+          "size": {
+            "width": "24px",
+            "height": "24px"
+          },
+          "type": "image"
+        },
+        {
+          "subtitle": "切图",
+          "properties": {
+            "切图名称": "ic_check"
+          },
+          "colors": [],
+          "code": ""
+        }
+      ]
+    },
+    {
+      "index": 30,
+      "dataIndex": "29",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "矩形 25",
+            "位置": "23px 84px",
+            "大小": "330px 210px",
+            "不透明度": "100%",
+            "圆角": "0px 0px 0px 0px"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "23px",
+            "y": "84px"
+          },
+          "size": {
+            "width": "330px",
+            "height": "210px"
+          },
+          "type": "container"
+        },
+        {
+          "subtitle": "颜色",
+          "properties": {},
+          "colors": [
+            {
+              "background": "background: rgb(245, 245, 254);",
+              "values": [
+                "#F5F5FE",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 330px;\nheight: 210px;\n\nbackground: #F5F5FE;\nborder-radius: 0px 0px 0px 0px;"
+        }
+      ]
+    },
+    {
+      "index": 31,
+      "dataIndex": "30",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "矩形 23",
+            "位置": "237px 124.19px",
+            "大小": "40px",
+            "不透明度": "100%",
+            "圆角": "8px 8px 8px 8px",
+            "旋转": "329.68°"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "237px",
+            "y": "124.19px"
+          },
+          "size": {
+            "width": "40px",
+            "height": "40px"
+          },
+          "type": "container"
+        },
+        {
+          "subtitle": "颜色",
+          "properties": {},
+          "colors": [
+            {
+              "background": "background: rgb(146, 154, 241);",
+              "values": [
+                "#929AF1",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 40px;\nheight: 40px;\n\nbackground: #929AF1;\nborder-radius: 8px 8px 8px 8px;"
+        }
+      ]
+    },
+    {
+      "index": 32,
+      "dataIndex": "31",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "矩形 24",
+            "位置": "86.99px 214.09px",
+            "大小": "37.88px 38.88px",
+            "不透明度": "50%",
+            "圆角": "8px 8px 8px 8px",
+            "旋转": "345.62°"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "86.99px",
+            "y": "214.09px"
+          },
+          "size": {
+            "width": "37.88px",
+            "height": "38.88px"
+          },
+          "type": "container"
+        },
+        {
+          "subtitle": "颜色",
+          "properties": {},
+          "colors": [
+            {
+              "background": "background: rgb(146, 154, 241);",
+              "values": [
+                "#929AF1",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "",
+          "properties": {
+            "背景模糊": "30px"
+          },
+          "colors": [],
+          "code": ""
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 38px;\nheight: 39px;\n\nbackground: #929AF1;\nborder-radius: 8px 8px 8px 8px;\n\nopacity: 0.5;"
+        }
+      ]
+    },
+    {
+      "index": 33,
+      "dataIndex": "32",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "矩形 22",
+            "位置": "55px 122px",
+            "大小": "265px 130px",
+            "不透明度": "100%",
+            "圆角": "16px 16px 16px 16px"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "55px",
+            "y": "122px"
+          },
+          "size": {
+            "width": "265px",
+            "height": "130px"
+          },
+          "type": "container"
+        },
+        {
+          "subtitle": "颜色",
+          "properties": {},
+          "colors": [
+            {
+              "background": "background: rgba(255, 255, 255, 0.12);",
+              "values": [
+                "#FFFFFF",
+                "12%"
+              ]
+            },
+            {
+              "background": "background: rgba(255, 255, 255, 0.5);",
+              "values": [
+                "#FFFFFF",
+                "50%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "中心边框",
+          "properties": {
+            "粗细": "1px"
+          },
+          "colors": [
+            {
+              "background": "background: rgb(255, 255, 255);",
+              "values": [
+                "#FFFFFF",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "外阴影",
+          "properties": {
+            "Offset": "0px\nX 24px\nY",
+            "Effect": "32px\nblur 0px\nspread",
+            "颜色": "#4446B2 10%"
+          },
+          "colors": [
+            {
+              "background": "background: rgba(68, 70, 178, 0.1);",
+              "values": [
+                "#4446B2",
+                "10%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "",
+          "properties": {
+            "背景模糊": "20px"
+          },
+          "colors": [],
+          "code": ""
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 265px;\nheight: 130px;\n\nbackground: linear-gradient( 90deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.5) 100%);\nbox-shadow: 0px 24px 32px 0px rgba(68,70,178,0.1);\nborder-radius: 16px 16px 16px 16px;\nborder: 1px solid #FFFFFF;"
+        }
+      ]
+    },
+    {
+      "index": 34,
+      "dataIndex": "33",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "欢迎来到",
+            "位置": "71px 142px",
+            "大小": "72px 24px",
+            "不透明度": "100%"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "71px",
+            "y": "142px"
+          },
+          "size": {
+            "width": "72px",
+            "height": "24px"
+          },
+          "type": "text"
+        },
+        {
+          "subtitle": "文本",
+          "properties": {
+            "字重": "400",
+            "对齐": "左对齐",
+            "字号": "18px",
+            "空间": {
+              "value": "0px",
+              "desc": "字间距"
+            },
+            "行高": "24px",
+            "内容": "欢迎来到"
+          },
+          "colors": [
+            {
+              "background": "background: rgb(31, 31, 31);",
+              "values": [
+                "#1F1F1F",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "颜色",
+          "properties": {},
+          "colors": [
+            {
+              "background": "background: rgb(31, 31, 31);",
+              "values": [
+                "#1F1F1F",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 72px;\nheight: 24px;\n\n\nfont-weight: 400;\nfont-size: 18px;\ncolor: #1F1F1F;\nline-height: 24px;\ntext-align: left;\nfont-style: normal;\ntext-transform: none;"
+        }
+      ]
+    },
+    {
+      "index": 35,
+      "dataIndex": "34",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "咳搜 慢阻肺辅助诊断",
+            "位置": "71px 174px",
+            "大小": "224px 34px",
+            "不透明度": "100%"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "71px",
+            "y": "174px"
+          },
+          "size": {
+            "width": "224px",
+            "height": "34px"
+          },
+          "type": "text"
+        },
+        {
+          "subtitle": "文本",
+          "properties": {
+            "字重": "500",
+            "对齐": "左对齐",
+            "字号": "24px",
+            "空间": {
+              "value": "0px",
+              "desc": "字间距"
+            },
+            "行高": "34px",
+            "内容": "咳搜 慢阻肺辅助诊断"
+          },
+          "colors": [
+            {
+              "background": "background: rgb(106, 115, 199);",
+              "values": [
+                "#6A73C7",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "颜色",
+          "properties": {},
+          "colors": [
+            {
+              "background": "background: rgb(106, 115, 199);",
+              "values": [
+                "#6A73C7",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 224px;\nheight: 34px;\n\n\nfont-weight: 500;\nfont-size: 24px;\ncolor: #6A73C7;\nline-height: 34px;\ntext-align: left;\nfont-style: normal;\ntext-transform: none;"
+        }
+      ]
+    },
+    {
+      "index": 36,
+      "dataIndex": "35",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "ic_login_head",
+            "位置": "23px 84px",
+            "大小": "330px 210px",
+            "不透明度": "100%"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "23px",
+            "y": "84px"
+          },
+          "size": {
+            "width": "330px",
+            "height": "210px"
+          },
+          "type": "image"
+        },
+        {
+          "subtitle": "切图",
+          "properties": {
+            "切图名称": "ic_login_head"
+          },
+          "colors": [],
+          "code": ""
+        }
+      ]
+    },
+    {
+      "index": 37,
+      "dataIndex": "36",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "医生请登录",
+            "位置": "138px 312px",
+            "大小": "100px 26px",
+            "不透明度": "100%"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "138px",
+            "y": "312px"
+          },
+          "size": {
+            "width": "100px",
+            "height": "26px"
+          },
+          "type": "text"
+        },
+        {
+          "subtitle": "文本",
+          "properties": {
+            "字重": "400",
+            "对齐": "左对齐",
+            "字号": "20px",
+            "空间": {
+              "value": "0%",
+              "desc": "字间距"
+            },
+            "行高": "26px",
+            "内容": "医生请登录"
+          },
+          "colors": [
+            {
+              "background": "background: rgb(42, 42, 42);",
+              "values": [
+                "#2A2A2A",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "颜色",
+          "properties": {},
+          "colors": [
+            {
+              "background": "background: rgb(42, 42, 42);",
+              "values": [
+                "#2A2A2A",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 100px;\nheight: 26px;\n\n\nfont-weight: 400;\nfont-size: 20px;\ncolor: #2A2A2A;\nline-height: 26px;\ntext-align: left;\nfont-style: normal;\ntext-transform: none;"
+        }
+      ]
+    },
+    {
+      "index": 38,
+      "dataIndex": "37",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "我已阅读并同意《用户服务协议》和《隐私政策》",
+            "位置": "54px 600px",
+            "大小": "286px 18px",
+            "不透明度": "100%"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "54px",
+            "y": "600px"
+          },
+          "size": {
+            "width": "286px",
+            "height": "18px"
+          },
+          "type": "richtext"
+        },
+        {
+          "subtitle": "文本",
+          "properties": {
+            "内容": "我已阅读并同意《用户服务协议》和《隐私政策》"
+          },
+          "colors": [],
+          "code": ""
+        },
+        {
+          "subtitle": "“ 我已阅读并同意 ”",
+          "properties": {
+            "字重": "400",
+            "对齐": "左对齐\n垂直顶对齐",
+            "颜色": "#555555 100%",
+            "字号": "13px",
+            "空间": {
+              "value": "0px",
+              "desc": "字间距"
+            },
+            "行高": "18px",
+            "内容": "我已阅读并同意"
+          },
+          "colors": [
+            {
+              "background": "background: rgb(85, 85, 85);",
+              "values": [
+                "#555555",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "“ 《用户服务协议》 ”",
+          "properties": {
+            "字重": "500",
+            "对齐": "左对齐\n垂直顶对齐",
+            "颜色": "#181818 100%",
+            "字号": "13px",
+            "空间": {
+              "value": "0px",
+              "desc": "字间距"
+            },
+            "行高": "18px",
+            "内容": "《用户服务协议》"
+          },
+          "colors": [
+            {
+              "background": "background: rgb(24, 24, 24);",
+              "values": [
+                "#181818",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "“ 和 ”",
+          "properties": {
+            "字重": "400",
+            "对齐": "左对齐\n垂直顶对齐",
+            "颜色": "#555555 100%",
+            "字号": "13px",
+            "空间": {
+              "value": "0px",
+              "desc": "字间距"
+            },
+            "行高": "18px",
+            "内容": "和"
+          },
+          "colors": [
+            {
+              "background": "background: rgb(85, 85, 85);",
+              "values": [
+                "#555555",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "“ 《隐私政策》 ”",
+          "properties": {
+            "字重": "500",
+            "对齐": "左对齐\n垂直顶对齐",
+            "颜色": "#181818 100%",
+            "字号": "13px",
+            "空间": {
+              "value": "0px",
+              "desc": "字间距"
+            },
+            "行高": "18px",
+            "内容": "《隐私政策》"
+          },
+          "colors": [
+            {
+              "background": "background: rgb(24, 24, 24);",
+              "values": [
+                "#181818",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "颜色",
+          "properties": {},
+          "colors": [
+            {
+              "background": "background: rgb(85, 85, 85);",
+              "values": [
+                "#555555",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 286px;\nheight: 18px;\n\n\nfont-weight: 400;\nfont-size: 13px;\ncolor: #555555;\nline-height: 18px;\ntext-align: left;\nfont-style: normal;\ntext-transform: none;"
+        }
+      ]
+    },
+    {
+      "index": 39,
+      "dataIndex": "38",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "Ellipse 2",
+            "位置": "36px 602px",
+            "大小": "14px",
+            "不透明度": "100%"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "36px",
+            "y": "602px"
+          },
+          "size": {
+            "width": "14px",
+            "height": "14px"
+          },
+          "type": "container"
+        },
+        {
+          "subtitle": "颜色",
+          "properties": {},
+          "colors": [
+            {
+              "background": "background: rgb(144, 155, 255);",
+              "values": [
+                "#909BFF",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 14px;\nheight: 14px;\n\nbackground: #909BFF;"
+        }
+      ]
+    },
+    {
+      "index": 40,
+      "dataIndex": "39",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "Vector (Stroke)",
+            "位置": "39.31px 606.58px",
+            "大小": "7.06px 4.84px",
+            "不透明度": "100%"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "39.31px",
+            "y": "606.58px"
+          },
+          "size": {
+            "width": "7.06px",
+            "height": "4.84px"
+          },
+          "type": "container"
+        },
+        {
+          "subtitle": "颜色",
+          "properties": {},
+          "colors": [
+            {
+              "background": "background: rgb(255, 255, 255);",
+              "values": [
+                "#FFFFFF",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 7px;\nheight: 5px;\n\nbackground: #FFFFFF;"
+        }
+      ]
+    },
+    {
+      "index": 41,
+      "dataIndex": "40",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "choice_yes",
+            "位置": "36px 602px",
+            "大小": "14px",
+            "不透明度": "100%"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "36px",
+            "y": "602px"
+          },
+          "size": {
+            "width": "14px",
+            "height": "14px"
+          },
+          "type": "image"
+        },
+        {
+          "subtitle": "切图",
+          "properties": {
+            "切图名称": "choice_yes"
+          },
+          "colors": [],
+          "code": ""
+        }
+      ]
+    },
+    {
+      "index": 42,
+      "dataIndex": "41",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "ic:round-arrow-back-ios",
+            "位置": "24px 56px",
+            "大小": "20px",
+            "不透明度": "100%",
+            "圆角": "0px 0px 0px 0px"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "24px",
+            "y": "56px"
+          },
+          "size": {
+            "width": "20px",
+            "height": "20px"
+          },
+          "type": "container"
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 20px;\nheight: 20px;\n\nborder-radius: 0px 0px 0px 0px;"
+        }
+      ]
+    },
+    {
+      "index": 43,
+      "dataIndex": "42",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "Vector",
+            "位置": "29.21px 58.19px",
+            "大小": "8.95px 15.64px",
+            "不透明度": "100%"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "29.21px",
+            "y": "58.19px"
+          },
+          "size": {
+            "width": "8.95px",
+            "height": "15.64px"
+          },
+          "type": "container"
+        },
+        {
+          "subtitle": "颜色",
+          "properties": {},
+          "colors": [
+            {
+              "background": "background: rgb(46, 55, 76);",
+              "values": [
+                "#2E374C",
+                "100%"
+              ]
+            }
+          ],
+          "code": ""
+        },
+        {
+          "subtitle": "代码",
+          "properties": {},
+          "colors": [],
+          "code": "width: 9px;\nheight: 16px;\n\nbackground: #2E374C;"
+        }
+      ]
+    },
+    {
+      "index": 44,
+      "dataIndex": "43",
+      "annotations": [
+        {
+          "subtitle": "样式信息",
+          "properties": {
+            "图层": "ic_back20",
+            "位置": "24px 56px",
+            "大小": "20px",
+            "不透明度": "100%"
+          },
+          "colors": [],
+          "code": "",
+          "position": {
+            "x": "24px",
+            "y": "56px"
+          },
+          "size": {
+            "width": "20px",
+            "height": "20px"
+          },
+          "type": "image"
+        },
+        {
+          "subtitle": "切图",
+          "properties": {
+            "切图名称": "ic_back20"
+          },
+          "colors": [],
+          "code": ""
+        }
+      ]
+    }
+  ]
+}

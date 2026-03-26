@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>zha-lanhu助手</title>
+  <link rel="stylesheet" href="../shared/ui-common.css">
+</head>
+<body class="popup">
+  <div class="tech-container container">
+    <div class="tech-header">
+      <h1 class="tech-title">ZHA-LANHU</h1>
+    </div>
+    
+    <div class="tech-form">
+      <div class="tech-form-group">
+        <label class="tech-label">Prompt Template</label>
+        <select id="promptSelect" class="tech-select">
+        </select>
+      </div>
+      
+      <div class="tech-form-group">
+        <label class="tech-label">AI Model</label>
+        <select id="llmSelect" class="tech-select">
+        </select>
+      </div>
+      
+      <div id="progressContainer" class="tech-progress" style="display: none;">
+        <div class="progress-info">
+          <span id="progressText">正在分析...</span>
+          <span id="progressPercent">0%</span>
+        </div>
+        <div class="tech-progress-bar">
+          <div id="progressFill" class="tech-progress-fill" style="width: 0%"></div>
+        </div>
+      </div>
+      
+      <button id="scanButton" class="tech-button tech-glow">
+        开始扫描分析
+      </button>
+      
+      <button id="googleAiButton" class="tech-button">
+        打开 AI Studio
+      </button>
+    </div>
+    
+    <div id="logContainer" class="tech-log">
+      <div class="tech-log-entry info">
+        <span class="tech-timestamp">[系统]</span>
+        欢迎使用 ZHA-LANHU 智能分析助手
+      </div>
+    </div>
+    
+    <div class="tech-footer">
+      <button id="exportButton" class="tech-button" disabled>
+        导出 JSON 文件
+      </button>
+    </div>
+  </div>
+  
+  <script src="../shared/prompt-select-options.js"></script>
+  <script src="../shared/llm-select-options.js"></script>
+  <script src="../shared/gemini-executor.js"></script>
+  <script src="../shared/deepseek-executor.js"></script>
+  <script src="../shared/doubao-executor.js"></script>
+  <script src="../shared/claude-executor.js"></script>
+  <script src="../shared/bean.js"></script>
+  <script src="../shared/ui-common.js"></script>
+</body>
+</html>

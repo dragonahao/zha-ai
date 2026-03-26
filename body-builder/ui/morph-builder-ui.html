@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>人体模型 - BMI 调节</title>
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0a0a0f;
+            min-height: 100vh;
+            color: #fff;
+            overflow: hidden;
+        }
+        .container {
+            display: flex;
+            height: 100vh;
+        }
+        /* 左侧面板 */
+        .control-panel {
+            width: 340px;
+            background: rgba(20, 20, 35, 0.95);
+            backdrop-filter: blur(12px);
+            padding: 28px 24px;
+            border-right: 1px solid rgba(255,255,255,0.07);
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            overflow-y: auto;
+        }
+        .panel-title {
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: -0.3px;
+            color: rgba(255,255,255,0.9);
+        }
+        .panel-subtitle {
+            font-size: 12px;
+            color: rgba(255,255,255,0.35);
+            margin-top: 2px;
+        }
+        /* BMI 显示卡 */
+        .bmi-card {
+            background: linear-gradient(135deg, rgba(102,126,234,0.18), rgba(118,75,162,0.18));
+            border: 1px solid rgba(102,126,234,0.25);
+            border-radius: 16px;
+            padding: 20px;
+            text-align: center;
+        }
+        .bmi-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: rgba(255,255,255,0.4);
+            margin-bottom: 6px;
+        }
+        .bmi-value {
+            font-size: 52px;
+            font-weight: 800;
+            line-height: 1;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bmi-category {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .bmi-category.underweight { background: #3498db; }
+        .bmi-category.normal      { background: #27ae60; }
+        .bmi-category.overweight  { background: #f39c12; }
+        .bmi-category.obese       { background: #e74c3c; }
+
+        /* 滑块 */
+        .slider-section {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .slider-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .slider-label {
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(255,255,255,0.7);
+        }
+        .slider-val {
+            font-size: 13px;
+            font-weight: 700;
+            color: #667eea;
+        }
+        input[type="range"] {
+            width: 100%;
+            height: 6px;
+            -webkit-appearance: none;
+            background: rgba(255,255,255,0.08);
+            border-radius: 3px;
+            outline: none;
+            cursor: pointer;
+        }
+        input[type="range"]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.4);
+            cursor: grab;
+        }
+        input[type="range"]:active::-webkit-slider-thumb { cursor: grabbing; }
+        .slider-ticks {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 4px;
+        }
+        .slider-ticks span {
+            font-size: 10px;
+            color: rgba(255,255,255,0.3);
+        }
+
+        /* 预设按钮 */
+        .preset-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: rgba(255,255,255,0.3);
+        }
+        .preset-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+        }
+        .preset-btn {
+            padding: 10px 6px;
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s ease;
+            color: rgba(255,255,255,0.6);
+            font-size: 12px;
+            font-weight: 600;
+        }
+        .preset-btn:hover {
+            background: rgba(102,126,234,0.15);
+            border-color: rgba(102,126,234,0.4);
+            color: #fff;
+        }
+        .preset-btn.active {
+            background: rgba(102,126,234,0.25);
+            border-color: #667eea;
+            color: #667eea;
+        }
+
+        /* 体型参数 */
+        .params-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .param-item {
+            background: rgba(255,255,255,0.04);
+            border-radius: 10px;
+            padding: 12px;
+        }
+        .param-item .p-label {
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: rgba(255,255,255,0.3);
+            margin-bottom: 4px;
+        }
+        .param-item .p-value {
+            font-size: 18px;
+            font-weight: 700;
+            color: rgba(255,255,255,0.85);
+        }
+
+        /* 性别 */
+        .gender-section {
+            display: flex;
+            gap: 8px;
+        }
+        .gender-btn {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid rgba(255,255,255,0.1);
+            background: rgba(255,255,255,0.04);
+            border-radius: 10px;
+            cursor: pointer;
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 13px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .gender-btn:hover { border-color: rgba(102,126,234,0.4); color: #fff; }
+        .gender-btn.active {
+            background: rgba(102,126,234,0.2);
+            border-color: #667eea;
+            color: #667eea;
+        }
+
+        /* 视角按钮 */
+        .view-row {
+            display: flex;
+            gap: 8px;
+        }
+        .view-btn {
+            flex: 1;
+            padding: 8px;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.04);
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: center;
+            color: rgba(255,255,255,0.45);
+            font-size: 11px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+        .view-btn:hover, .view-btn.active {
+            background: rgba(102,126,234,0.15);
+            border-color: rgba(102,126,234,0.5);
+            color: #667eea;
+        }
+
+        /* 右侧 3D */
+        .viewer {
+            flex: 1;
+            position: relative;
+            background: radial-gradient(ellipse at center, #111d35 0%, #080810 100%);
+        }
+        #canvas-container { width: 100%; height: 100%; }
+        canvas { display: block; }
+
+        /* 加载遮罩 */
+        .loading-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(8,8,16,0.85);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            z-index: 100;
+            opacity: 1;
+            transition: opacity 0.4s ease;
+        }
+        .loading-overlay.hidden { opacity: 0; pointer-events: none; }
+        .spinner {
+            width: 40px; height: 40px;
+            border: 3px solid rgba(255,255,255,0.08);
+            border-top-color: #667eea;
+            border-radius: 50%;
+            animation: spin 0.9s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .loading-text { font-size: 13px; color: rgba(255,255,255,0.5); }
+
+        /* 提示 */
+        .toast {
+            position: fixed;
+            bottom: 28px;
+            left: 50%;
+            transform: translateX(-50%) translateY(40px);
+            background: rgba(0,0,0,0.75);
+            color: #fff;
+            padding: 10px 22px;
+            border-radius: 8px;
+            font-size: 13px;
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 200;
+        }
+        .toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <!-- 左侧控制面板 -->
+    <div class="control-panel">
+
+        <div>
+            <div class="panel-title">人体模型</div>
+            <div class="panel-subtitle">Morph Targets · BMI 20–35</div>
+        </div>
+
+        <!-- BMI 显示 -->
+        <div class="bmi-card">
+            <div class="bmi-label">BMI 体质指数</div>
+            <div class="bmi-value" id="bmi-value">20.0</div>
+            <div id="bmi-category" class="bmi-category normal">偏瘦</div>
+        </div>
+
+        <!-- BMI 滑块 -->
+        <div class="slider-section">
+            <div class="slider-header">
+                <span class="slider-label">体质指数</span>
+                <span class="slider-val" id="bmi-slider-label">BMI 20</span>
+            </div>
+            <input type="range" id="bmi-slider" min="20" max="35" step="0.1" value="20">
+            <div class="slider-ticks">
+                <span>20</span><span>23</span><span>26</span><span>29</span><span>32</span><span>35</span>
+            </div>
+        </div>
+
+        <!-- 体型预设 -->
+        <div>
+            <div class="preset-label">体型预设</div>
+            <div class="preset-grid" style="margin-top:10px">
+                <button class="preset-btn active" data-bmi="20">偏瘦<br><small style="font-size:10px;opacity:0.5">BMI 20</small></button>
+                <button class="preset-btn" data-bmi="22">标准<br><small style="font-size:10px;opacity:0.5">BMI 22</small></button>
+                <button class="preset-btn" data-bmi="25">微胖<br><small style="font-size:10px;opacity:0.5">BMI 25</small></button>
+                <button class="preset-btn" data-bmi="28">肥胖<br><small style="font-size:10px;opacity:0.5">BMI 28</small></button>
+                <button class="preset-btn" data-bmi="32">重度<br><small style="font-size:10px;opacity:0.5">BMI 32</small></button>
+                <button class="preset-btn" data-bmi="35">极重度<br><small style="font-size:10px;opacity:0.5">BMI 35</small></button>
+            </div>
+        </div>
+
+        <!-- 性别 -->
+        <div>
+            <div class="preset-label">性别</div>
+            <div class="gender-section" style="margin-top:10px">
+                <button class="gender-btn active" data-gender="male">男性</button>
+                <button class="gender-btn" data-gender="female">女性</button>
+            </div>
+        </div>
+
+        <!-- 视角 -->
+        <div>
+            <div class="preset-label">视角</div>
+            <div class="view-row" style="margin-top:10px">
+                <button class="view-btn active" data-view="front">正面</button>
+                <button class="view-btn" data-view="side">侧面</button>
+                <button class="view-btn" data-view="top">俯视</button>
+                <button class="view-btn" data-view="rotate">旋转</button>
+            </div>
+        </div>
+
+        <!-- 眼部颜色 -->
+        <div>
+            <div class="preset-label">眼睛颜色</div>
+            <div class="eye-color-grid" style="margin-top:10px; display: flex; flex-wrap: wrap; gap: 6px;">
+                <button class="eye-color-btn active" data-color="blue" title="蓝色" style="width:28px;height:28px;border-radius:50%;border:2px solid rgba(255,255,255,0.2);background:#4a90d9;cursor:pointer;transition:all 0.2s;"></button>
+                <button class="eye-color-btn" data-color="brown" title="棕色" style="width:28px;height:28px;border-radius:50%;border:2px solid rgba(255,255,255,0.2);background:#8b4513;cursor:pointer;transition:all 0.2s;"></button>
+                <button class="eye-color-btn" data-color="green" title="绿色" style="width:28px;height:28px;border-radius:50%;border:2px solid rgba(255,255,255,0.2);background:#2e8b57;cursor:pointer;transition:all 0.2s;"></button>
+                <button class="eye-color-btn" data-color="gray" title="灰色" style="width:28px;height:28px;border-radius:50%;border:2px solid rgba(255,255,255,0.2);background:#808080;cursor:pointer;transition:all 0.2s;"></button>
+                <button class="eye-color-btn" data-color="black" title="黑色" style="width:28px;height:28px;border-radius:50%;border:2px solid rgba(255,255,255,0.2);background:#1a1a1a;cursor:pointer;transition:all 0.2s;"></button>
+                <button class="eye-color-btn" data-color="hazel" title="淡褐色" style="width:28px;height:28px;border-radius:50%;border:2px solid rgba(255,255,255,0.2);background:#8e7618;cursor:pointer;transition:all 0.2s;"></button>
+                <button class="eye-color-btn" data-color="violet" title="紫色" style="width:28px;height:28px;border-radius:50%;border:2px solid rgba(255,255,255,0.2);background:#9370db;cursor:pointer;transition:all 0.2s;"></button>
+                <button class="eye-color-btn" data-color="amber" title="琥珀色" style="width:28px;height:28px;border-radius:50%;border:2px solid rgba(255,255,255,0.2);background:#ffbf00;cursor:pointer;transition:all 0.2s;"></button>
+            </div>
+        </div>
+
+        <!-- 实时参数 -->
+        <div>
+            <div class="preset-label">当前参数</div>
+            <div class="params-grid" style="margin-top:10px">
+                <div class="param-item">
+                    <div class="p-label">身高 cm</div>
+                    <div class="p-value" id="p-height">175</div>
+                </div>
+                <div class="param-item">
+                    <div class="p-label">体重 kg</div>
+                    <div class="p-value" id="p-weight">61.3</div>
+                </div>
+                <div class="param-item">
+                    <div class="p-label">肌肉量</div>
+                    <div class="p-value" id="p-muscle">偏低</div>
+                </div>
+                <div class="param-item">
+                    <div class="p-label">脂肪</div>
+                    <div class="p-value" id="p-fat">偏低</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- 右侧 3D 视图 -->
+    <div class="viewer">
+        <div id="canvas-container"></div>
+        <div class="loading-overlay" id="loading">
+            <div class="spinner"></div>
+            <div class="loading-text" id="loading-text">加载模型中…</div>
+        </div>
+    </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { GLTFLoader }   from 'three/addons/loaders/GLTFLoader.js';
+
+// ── 6 个 BMI 预设 ─────────────────────────────────────────────────────
+const PRESETS = [
+    { bmi: 20, name: 'BMI20_slim',       glb: '../output/male_BMI20_slim.glb',      iw: 0.10 },
+    { bmi: 22, name: 'BMI22_normal',     glb: '../output/male_BMI22_normal.glb',     iw: 0.30 },
+    { bmi: 25, name: 'BMI25_overweight', glb: '../output/male_BMI25_overweight.glb', iw: 0.55 },
+    { bmi: 28, name: 'BMI28_obese',      glb: '../output/male_BMI28_obese.glb',      iw: 0.72 },
+    { bmi: 32, name: 'BMI32_severe',     glb: '../output/male_BMI32_severe.glb',     iw: 0.88 },
+    { bmi: 35, name: 'BMI35_extreme',    glb: '../output/male_BMI35_extreme.glb',    iw: 0.99 },
+];
+const VERT_COUNT = 13348;   // 所有预设共享此顶点数
+
+// ── 全局状态 ────────────────────────────────────────────────────────────
+let scene, camera, renderer, controls;
+let bodyMesh  = null;    // 当前显示的 mesh
+let mat       = null;    // 共享材质
+let baseGeos  = [];      // 加载后的 6 个 BufferGeometry（position arrays）
+let baseIdx   = null;    // index Uint16Array（各预设相同，只取一次）
+let loaded    = false;
+
+// 眼部顶点索引（从模型顶点分析得到）
+let eyeVertexIndices = { left: [], right: [] };
+let vertexColors = null; // 顶点颜色数组
+
+// 颜色名称映射
+const colorMap = {
+    blue: 0x4a90d9, lightBlue: 0x87ceeb, darkBlue: 0x1e3a5f,
+    brown: 0x8b4513, darkBrown: 0x5c3317, lightBrown: 0xa0522d,
+    green: 0x2e8b57, lightGreen: 0x3cb371, darkGreen: 0x228b22,
+    gray: 0x808080, grey: 0x808080, lightGray: 0xa9a9a9,
+    black: 0x1a1a1a, darkBlack: 0x000000,
+    purple: 0x9370db, violet: 0x8b008b,
+    hazel: 0x8e7618, amber: 0xffbf00
+};
+
+// ── Three.js 场景初始化 ─────────────────────────────────────────────────
+function initScene() {
+    const container = document.getElementById('canvas-container');
+    const W = container.clientWidth, H = container.clientHeight;
+
+    scene = new THREE.Scene();
+    //  scene.background = new THREE.Color(0x080810);
+    scene.background = new THREE.Color(0xFFFFFF);
+
+    camera = new THREE.PerspectiveCamera(40, W / H, 0.01, 100);
+    camera.position.set(0, 0.9, 7.0);
+
+    renderer = new THREE.WebGLRenderer({ antialias: true });
+    renderer.setSize(W, H);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.15;
+    container.appendChild(renderer.domElement);
+
+    controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.06;
+    controls.minDistance   = 3.5*0.8; // 这儿可以调整范围
+    controls.maxDistance  = 12;
+    controls.target.set(0, 0.5, 0);
+
+    scene.add(new THREE.AmbientLight(0xffffff, 0.55));
+
+    const keyLight = new THREE.DirectionalLight(0xfff5e0, 1.1);
+    keyLight.position.set(3, 6, 4);
+    scene.add(keyLight);
+
+    const fillLight = new THREE.DirectionalLight(0xb0c4ff, 0.4);
+    fillLight.position.set(-4, 3, -3);
+    scene.add(fillLight);
+
+    const rimLight = new THREE.DirectionalLight(0xffffff, 0.35);
+    rimLight.position.set(0, 4, -6);
+    scene.add(rimLight);
+
+    // 垂直背景网格（试衣间墙面效果）
+    // const bgMat = new THREE.MeshBasicMaterial({
+    //     // color: 0x08090f, side: THREE.DoubleSide,
+    //     color: 0xFF000000, side: THREE.DoubleSide,
+    // });
+    // const bgMesh = new THREE.Mesh(new THREE.PlaneGeometry(8, 5), bgMat);
+    // bgMesh.position.set(0, 1.0, -2.5);
+    // scene.add(bgMesh);
+
+    // 墙面网格线（竖线 + 横线）
+    // const vLineMat = new THREE.LineBasicMaterial({ color: 0x1a2240 });
+    // const hLineMat = new THREE.LineBasicMaterial({ color: 0x1a2240 });
+    const vLineMat = new THREE.LineBasicMaterial({ color: 0xFF0000 });
+    const hLineMat = new THREE.LineBasicMaterial({ color: 0xFF0000 });
+    for (let x = -4; x <= 4; x += 0.5) {
+        const pts = [new THREE.Vector3(x, 0, 0), new THREE.Vector3(x, 5, 0)];
+        scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), vLineMat));
+    }
+    for (let y = 0; y <= 5; y += 0.5) {
+        const pts = [new THREE.Vector3(-4, y, 0), new THREE.Vector3(4, y, 0)];
+        scene.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), hLineMat));
+    }
+
+    window.addEventListener('resize', () => {
+        const W = container.clientWidth, H = container.clientHeight;
+        camera.aspect = W / H;
+        camera.updateProjectionMatrix();
+        renderer.setSize(W, H);
+        console.log('resize', W, H);
+    });
+
+    // 共享材质
+    mat = new THREE.MeshStandardMaterial({
+        color: 0xc8d8ff,
+        roughness: 0.55,
+        metalness: 0.05,
+    });
+
+    animate();
+}
+
+let _rotating = false;
+function animate() {
+    requestAnimationFrame(animate);
+    if (_rotating && bodyMesh) bodyMesh.rotation.y += 0.004;
+    controls.update();
+    renderer.render(scene, camera);
+}
+
+// ── 从 glTF scene 中提取第一个 mesh 的 position + index Float32Array ───
+function extractPositionsAndIndex(gltfScene) {
+    let positions = null, indices = null;
+    gltfScene.traverse((child) => {
+        if (child.isMesh && !positions) {
+            child.geometry.computeBoundingBox();
+            positions = new Float32Array(child.geometry.attributes.position.array);
+            if (child.geometry.index) {
+                const raw = child.geometry.index.array;
+                indices = raw instanceof Uint16Array
+                    ? raw
+                    : (raw instanceof Uint32Array ? new Uint16Array(raw) : new Uint16Array(raw));
+            }
+        }
+    });
+    return { positions, indices };
+}
+
+// ── 分析模型顶点，检测眼睛区域 ──────────────────────────────────────────
+// 坐标轴: Z=身高(上为大), Y=左右, X=前后(脸朝 +X 一侧)
+// 脸前顶点里 Z 越大越靠上 → 之前用「z >= 头高一半」会把额头/颅顶圈进来。
+// 改为：在脸前集合上取 Z 的 10%～55% 分位带 = 眼眶高度带（避开额头与下颌）。
+// 左右眼勿用「Y 中位数」一刀切：该模型 Y 整体偏负，中位数会把鼻梁和半张脸划进同一桶，出现鼻中央竖条。
+function detectEyeVertices(positions) {
+    const count = positions.length / 3;
+    const xs = new Float32Array(count);
+    const ys = new Float32Array(count);
+    const zs = new Float32Array(count);
+    let zMin = Infinity, zMax = -Infinity;
+    for (let i = 0; i < count; i++) {
+        const x = positions[i * 3];
+        const y = positions[i * 3 + 1];
+        const z = positions[i * 3 + 2];
+        xs[i] = x; ys[i] = y; zs[i] = z;
+        if (z < zMin) zMin = z;
+        if (z > zMax) zMax = z;
+    }
+    const zSpan = zMax - zMin;
+
+    function build(zHeadFrac, xFaceFrac, zQlo, zQhi, ySplitLo, ySplitHi) {
+        const zHeadThr = zMin + zSpan * zHeadFrac;
+        let hxMin = Infinity, hxMax = -Infinity;
+        for (let i = 0; i < count; i++) {
+            if (zs[i] < zHeadThr) continue;
+            const x = xs[i];
+            if (x < hxMin) hxMin = x;
+            if (x > hxMax) hxMax = x;
+        }
+        if (hxMax <= hxMin) return { left: [], right: [] };
+
+        const xFace = hxMin + (hxMax - hxMin) * xFaceFrac;
+        const faceFront = [];
+        for (let i = 0; i < count; i++) {
+            if (zs[i] < zHeadThr) continue;
+            if (xs[i] < xFace) continue;
+            faceFront.push(i);
+        }
+        if (faceFront.length < 16) return { left: [], right: [] };
+
+        const zvals = faceFront.map((idx) => zs[idx]).sort((a, b) => a - b);
+        const ilo = Math.min(zvals.length - 1, Math.floor(zvals.length * zQlo));
+        const ihi = Math.min(zvals.length - 1, Math.floor(zvals.length * zQhi));
+        const zLow = zvals[ilo];
+        const zHigh = zvals[ihi];
+        if (zHigh <= zLow) return { left: [], right: [] };
+
+        const candidates = [];
+        for (const i of faceFront) {
+            const z = zs[i];
+            if (z >= zLow && z <= zHigh) candidates.push(i);
+        }
+        if (candidates.length < 8) return { left: [], right: [] };
+
+        // 按 Y 分位分左右眼，中间一段丢弃（鼻梁/人中），避免竖条画在鼻子上
+        const yVals = candidates.map((idx) => ys[idx]).sort((a, b) => a - b);
+        const nY = yVals.length;
+        const iLo = Math.max(0, Math.floor((nY - 1) * ySplitLo));
+        const iHi = Math.min(nY - 1, Math.floor((nY - 1) * ySplitHi));
+        const yLeftMax = yVals[iLo];
+        const yRightMin = yVals[iHi];
+        if (yRightMin <= yLeftMax) return { left: [], right: [] };
+
+        const leftEyes = [];
+        const rightEyes = [];
+        for (const i of candidates) {
+            const y = ys[i];
+            if (y <= yLeftMax) leftEyes.push(i);
+            else if (y >= yRightMin) rightEyes.push(i);
+        }
+        return { left: leftEyes, right: rightEyes };
+    }
+
+    // zQlo/zQhi：脸前 Z 分位带；ySplitLo/Hi：候选点按 Y 排序后取两侧（默认 0.40 / 0.60 = 丢中间 20%）
+    let out = build(0.88, 0.35, 0.10, 0.55, 0.40, 0.60);
+    if (out.left.length === 0 || out.right.length === 0) {
+        out = build(0.85, 0.28, 0.08, 0.58, 0.38, 0.62);
+    }
+    if (out.left.length === 0 || out.right.length === 0) {
+        out = build(0.82, 0.22, 0.06, 0.60, 0.35, 0.65);
+    }
+
+    console.log(
+        `眼睛检测(脸前+Z带+Y分位去鼻): 左 ${out.left.length} 顶点, 右 ${out.right.length} 顶点`
+    );
+    return out;
+}
+
+// ── 眼部着色函数（直接修改模型顶点颜色）─────────────────────────────────
+const PUPIL_RADIUS = 0.006;  // 瞳孔半径（小于虹膜）
+const IRIS_RADIUS  = 0.014;  // 虹膜半径
+
+function drawEyeColor(side = 'both', options = {}) {
+    if (!loaded || !bodyMesh) return;
+
+    const {
+        irisColor = 'brown',
+        scleraColor = 0xf5f5f5,  // 眼白颜色
+        pupilColor = 'black'
+    } = options;
+
+    // 解析颜色
+    function parseColor(color) {
+        if (typeof color === 'number') return new THREE.Color(color);
+        const colorLower = color.toLowerCase();
+        if (colorMap[colorLower]) return new THREE.Color(colorMap[colorLower]);
+        try { return new THREE.Color(color); } catch { return new THREE.Color(0x8b4513); }
+    }
+
+    const irisCol = parseColor(irisColor);
+    const scleraCol = new THREE.Color(scleraColor);
+    const pupilCol = parseColor(pupilColor);
+
+    const positions = bodyMesh.geometry.attributes.position.array;
+    const count = positions.length / 3;
+
+    // 初始化顶点颜色数组（如果还没有）
+    if (!vertexColors) {
+        vertexColors = new Float32Array(count * 3);
+        for (let i = 0; i < count; i++) {
+            vertexColors[i * 3] = 0.90;     // R - 偏白肤色
+            vertexColors[i * 3 + 1] = 0.78; // G
+            vertexColors[i * 3 + 2] = 0.65;  // B - 略偏暖
+        }
+    }
+
+    // 为眼部区域着色 - 基于 XY 平面距离
+    function colorEyeVertices(indices, irisColor, pupilColor, scleraColor) {
+        if (indices.length === 0) return;
+
+        // 动态计算眼部中心（取检测到的顶点区域的中心）
+        let cx = 0, cy = 0;
+        for (const idx of indices) {
+            cx += positions[idx * 3];
+            cy += positions[idx * 3 + 1];
+        }
+        cx /= indices.length;
+        cy /= indices.length;
+
+        for (const idx of indices) {
+            const vx = positions[idx * 3] - cx;
+            const vy = positions[idx * 3 + 1] - cy;
+            const dist = Math.sqrt(vx * vx + vy * vy);
+
+            const finalColor = new THREE.Color();
+            if (dist < PUPIL_RADIUS * 0.5) {
+                finalColor.copy(pupilColor);
+            } else if (dist < PUPIL_RADIUS) {
+                finalColor.lerpColors(pupilColor, irisColor, (dist - PUPIL_RADIUS * 0.5) / (PUPIL_RADIUS * 0.5));
+            } else if (dist < IRIS_RADIUS * 0.7) {
+                finalColor.copy(irisColor);
+            } else if (dist < IRIS_RADIUS) {
+                finalColor.lerpColors(irisColor, scleraColor, (dist - IRIS_RADIUS * 0.7) / (IRIS_RADIUS * 0.3));
+            } else {
+                finalColor.copy(scleraColor);
+            }
+
+            vertexColors[idx * 3] = finalColor.r;
+            vertexColors[idx * 3 + 1] = finalColor.g;
+            vertexColors[idx * 3 + 2] = finalColor.b;
+        }
+    }
+
+    if (side === 'left' || side === 'both') {
+        colorEyeVertices(eyeVertexIndices.left, irisCol, pupilCol, scleraCol);
+    }
+    if (side === 'right' || side === 'both') {
+        colorEyeVertices(eyeVertexIndices.right, irisCol, pupilCol, scleraCol);
+    }
+
+    // 更新几何体的顶点颜色
+    const colorAttr = bodyMesh.geometry.getAttribute('color');
+    if (colorAttr) {
+        colorAttr.needsUpdate = true;
+    } else {
+        bodyMesh.geometry.setAttribute('color', new THREE.BufferAttribute(vertexColors, 3));
+    }
+    mat.vertexColors = true;
+    mat.needsUpdate = true;
+}
+
+// 预设的眼部颜色
+const EYE_COLORS = {
+    blue:    { iris: 0x4a90d9, name: '蓝色' },
+    brown:   { iris: 0x8b4513, name: '棕色' },
+    green:   { iris: 0x2e8b57, name: '绿色' },
+    gray:    { iris: 0x808080, name: '灰色' },
+    black:   { iris: 0x1a1a1a, name: '黑色' },
+    hazel:   { iris: 0x8e7618, name: '淡褐色' },
+    violet:  { iris: 0x9370db, name: '紫色' },
+    amber:   { iris: 0xffbf00, name: '琥珀色' }
+};
+
+// ── 并行加载全部 6 个预设 geometry ───────────────────────────────────────
+async function loadAllGeometries() {
+    const loader = new GLTFLoader();
+    const promises = PRESETS.map(async (p) => {
+        return new Promise((resolve, reject) => {
+            loader.load(
+                p.glb,
+                (gltf) => {
+                    const { positions, indices } = extractPositionsAndIndex(gltf.scene);
+                    if (!baseIdx) baseIdx = indices;  // 只存一次
+                    resolve(positions);
+                },
+                undefined,
+                (err) => reject(new Error(`加载 ${p.name} 失败: ${err}`))
+            );
+        });
+    });
+    baseGeos = await Promise.all(promises);
+    console.log('全部 6 个预设 geometry 加载完毕，vertex count:', baseGeos[0]?.length / 3, '| has index:', !!baseIdx);
+}
+
+// ── 两组顶点线性插值，结果写入 out ──────────────────────────────────────
+function lerpVertices(out, a, b, t) {
+    for (let i = 0; i < out.length; i++) {
+        out[i] = a[i] + (b[i] - a[i]) * t;
+    }
+}
+
+// ── 根据 BMI 插值更新 mesh ──────────────────────────────────────────────
+function applyBMI(bmi) {
+    if (!loaded || baseGeos.length < 2) return;
+
+    // 找到 bmi 落在哪两个预设之间
+    let lo = 0, hi = PRESETS.length - 1;
+    for (let i = 0; i < PRESETS.length - 1; i++) {
+        if (bmi >= PRESETS[i].bmi && bmi <= PRESETS[i + 1].bmi) {
+            lo = i; hi = i + 1;
+            break;
+        }
+    }
+    if (bmi <= PRESETS[0].bmi) { lo = hi = 0; }
+    if (bmi >= PRESETS[PRESETS.length - 1].bmi) { lo = hi = PRESETS.length - 1; }
+
+    const t = (PRESETS[hi].bmi === PRESETS[lo].bmi)
+        ? 0
+        : (bmi - PRESETS[lo].bmi) / (PRESETS[hi].bmi - PRESETS[lo].bmi);
+
+    const srcA = baseGeos[lo];
+    const srcB = baseGeos[hi];
+
+    // 复用 ArrayBuffer，避免每帧分配
+    if (!bodyMesh) {
+        const geo = new THREE.BufferGeometry();
+        const buf  = new Float32Array(VERT_COUNT * 3);
+        geo.setAttribute('position', new THREE.BufferAttribute(buf, 3));
+        if (baseIdx) geo.setIndex(new THREE.BufferAttribute(baseIdx, 1));
+        bodyMesh = new THREE.Mesh(geo, mat);
+        bodyMesh.castShadow = true;
+        scene.add(bodyMesh);
+    }
+
+    const posAttr = bodyMesh.geometry.attributes.position;
+    lerpVertices(posAttr.array, srcA, srcB, t);
+    posAttr.needsUpdate = true;
+    bodyMesh.geometry.computeVertexNormals();   // 插值后重新计算法线
+    bodyMesh.geometry.computeBoundingBox();
+    bodyMesh.geometry.computeBoundingSphere();
+
+    // Anny 导出的 GLB 身高沿本地 Z（非 Three.js 的 Y）。绕 X 转正 + 绕 Y 朝屏，再按世界包围盒缩放与落地。
+    bodyMesh.rotation.set(Math.PI/2  , Math.PI, Math.PI);
+    bodyMesh.scale.setScalar(1);
+    bodyMesh.position.set(0, 0, 0);
+    bodyMesh.updateMatrixWorld(true);
+
+    const wb = new THREE.Box3().setFromObject(bodyMesh);
+    const size = new THREE.Vector3();
+    wb.getSize(size);
+    const scale = 1.3 / size.y;
+    bodyMesh.scale.setScalar(scale);
+    bodyMesh.updateMatrixWorld(true);
+
+    const wb2 = new THREE.Box3().setFromObject(bodyMesh);
+    const center = new THREE.Vector3();
+    wb2.getCenter(center);
+    bodyMesh.position.set(-center.x, -wb2.min.y, -center.z);
+
+    // 更新参数面板
+    const heightCm = 175;
+    const weightKg = (bmi * Math.pow(heightCm / 100, 2)).toFixed(1);
+    document.getElementById('p-height').textContent  = heightCm;
+    document.getElementById('p-weight').textContent   = weightKg;
+    document.getElementById('p-muscle').textContent  = bmi < 23 ? '偏低' : bmi < 27 ? '中等' : '偏高';
+    document.getElementById('p-fat').textContent     = bmi < 22 ? '偏低' : bmi < 27 ? '中等' : '偏高';
+}
+
+// ── UI 事件 ──────────────────────────────────────────────────────────────
+function updateBMIDisplay(bmi) {
+    document.getElementById('bmi-value').textContent       = bmi.toFixed(1);
+    document.getElementById('bmi-slider-label').textContent = `BMI ${Math.round(bmi)}`;
+
+    const cat = document.getElementById('bmi-category');
+    cat.className = 'bmi-category';
+    if      (bmi < 18.5) { cat.textContent = '偏瘦';     cat.classList.add('underweight'); }
+    else if (bmi < 24)   { cat.textContent = '标准';     cat.classList.add('normal'); }
+    else if (bmi < 28)   { cat.textContent = '偏胖';     cat.classList.add('overweight'); }
+    else                 { cat.textContent = '肥胖';     cat.classList.add('obese'); }
+}
+
+function syncSlider(bmi) {
+    const slider = document.getElementById('bmi-slider');
+    slider.value = bmi;
+    updateBMIDisplay(bmi);
+    document.querySelectorAll('.preset-btn').forEach(btn => {
+        btn.classList.toggle('active', Math.abs(bmi - parseFloat(btn.dataset.bmi)) < 0.5);
+    });
+}
+
+// BMI 滑块
+document.getElementById('bmi-slider').addEventListener('input', (e) => {
+    const bmi = parseFloat(e.target.value);
+    updateBMIDisplay(bmi);
+    applyBMI(bmi);
+    document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('active'));
+});
+
+// 预设按钮
+document.querySelectorAll('.preset-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        const bmi = parseFloat(btn.dataset.bmi);
+        syncSlider(bmi);
+        applyBMI(bmi);
+    });
+});
+
+// 视角
+document.querySelectorAll('.view-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.view-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        _rotating = false;
+        if (btn.dataset.view === 'front')  { camera.position.set(0, 0.9, 7.0);  controls.target.set(0, 0.9, 0); }
+        if (btn.dataset.view === 'side')   { camera.position.set(7.0, 0.9, 0);  controls.target.set(0, 0.9, 0); }
+        if (btn.dataset.view === 'top')    { camera.position.set(0, 4.5, 0.01); controls.target.set(0, 0.9, 0); }
+        if (btn.dataset.view === 'rotate') { _rotating = true; }
+        controls.update();
+    });
+});
+
+// 性别（目前只支持男性）
+document.querySelectorAll('.gender-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.gender-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        showToast('当前仅支持男性模型');
+    });
+});
+
+// 眼色选择
+document.querySelectorAll('.eye-color-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+        document.querySelectorAll('.eye-color-btn').forEach(b => {
+            b.classList.remove('active');
+            b.style.border = '2px solid rgba(255,255,255,0.2)';
+        });
+        btn.classList.add('active');
+        btn.style.border = '2px solid #667eea';
+        const color = btn.dataset.color;
+        drawEyeColor('both', { irisColor: color, pupilColor: 'black' });
+    });
+});
+
+// ── Loading / Toast ──────────────────────────────────────────────────────
+function showLoading(text) {
+    document.getElementById('loading-text').textContent = text;
+    document.getElementById('loading').classList.remove('hidden');
+}
+function hideLoading() {
+    document.getElementById('loading').classList.add('hidden');
+}
+function showToast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+// ── 启动 ─────────────────────────────────────────────────────────────────
+window.addEventListener('DOMContentLoaded', async () => {
+    initScene();
+    syncSlider(20);
+    showLoading('加载模型…');
+    try {
+        await loadAllGeometries();
+        // 先检测眼睛，再做其他一切
+        eyeVertexIndices = detectEyeVertices(baseGeos[0]);
+        loaded = true;
+        applyBMI(20);
+        drawEyeColor('both', { irisColor: 'brown', pupilColor: 'black' });
+        hideLoading();
+    } catch (e) {
+        hideLoading();
+        showToast(e.message);
+        console.error(e);
+    }
+});
+</script>
+</body>
+</html>
