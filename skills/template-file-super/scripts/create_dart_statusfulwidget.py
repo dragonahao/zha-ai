@@ -32,7 +32,7 @@ def generate_page_template(parentPath: str, fileName: str):
 
     if not os.path.exists(os.path.join(parentPath, fileNameLogic)):
         template_path = os.path.join(template_dir, "fileNameLogic.dart")
-        if os.path.exists(template_path):
+        if not os.path.exists(template_path):
             with open(template_path, "r", encoding="utf-8") as templateLogicFile:
                 templateLogic = templateLogicFile.read()
                 templateLogic = templateLogic.replace("fileName", fileName)
@@ -41,7 +41,7 @@ def generate_page_template(parentPath: str, fileName: str):
 
     if not os.path.exists(os.path.join(parentPath, fileNameState)):
         template_path = os.path.join(template_dir, "fileNameState.dart")
-        if os.path.exists(template_path):
+        if not os.path.exists(template_path):
             with open(template_path, "r", encoding="utf-8") as templateStateFile:
                 templateState = templateStateFile.read()
                 templateState = templateState.replace("fileName", fileName)
@@ -50,7 +50,7 @@ def generate_page_template(parentPath: str, fileName: str):
 
     if not os.path.exists(os.path.join(parentPath, fileNamePage)):
         template_path = os.path.join(template_dir, "fileNamePage.dart")
-        if os.path.exists(template_path):
+        if not os.path.exists(template_path):
             with open(template_path, "r", encoding="utf-8") as templatePageFile:
                 templatePage = templatePageFile.read()
                 templatePage = templatePage.replace("fileName", fileName)

@@ -33,7 +33,7 @@ def generate_page_template(parentPath: str, fileName: str):
 
     if not os.path.exists(os.path.join(parentPath, fileNameScss)):
         template_path = os.path.join(template_dir, "fileName.scss")
-        if os.path.exists(template_path):
+        if not os.path.exists(template_path):
             with open(template_path, "r", encoding="utf-8") as templateScssFile:
                 templateScss = templateScssFile.read()
                 templateScss = templateScss.replace("fileName", fileName)
@@ -42,7 +42,7 @@ def generate_page_template(parentPath: str, fileName: str):
 
     if not os.path.exists(os.path.join(parentPath, fileNameTsx)):
         template_path = os.path.join(template_dir, "fileName.tsx")
-        if os.path.exists(template_path):
+        if not os.path.exists(template_path):
             with open(template_path, "r", encoding="utf-8") as templateTsxFile:
                 templateTsx = templateTsxFile.read()
                 templateTsx = templateTsx.replace("fileName", fileName)
