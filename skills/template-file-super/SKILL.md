@@ -13,6 +13,14 @@ description: 根据模板文件创建文件
 
 4.**第四步(创建文件)**: 根据下文的 [2.处理逻辑定义] 执行具体任务。
 
+## 路径解析
+- **路径与处理**：识别用户输入的相对路径或绝对路径
+- 用户输入一个路径时需要解析为两部分
+- 将"文件A" 放在变量 `rootpath`中
+- 将"文件B" 放在变量 `filepath`中
+- **rootpath**: 基准参考文件路径(用户输入中的"文件A")
+- **filepath**: 目标创建路径(用户输入中的"文件B")
+
 ## 菜单定义
 
 ### 1. 文件类型菜单
@@ -28,7 +36,7 @@ description: 根据模板文件创建文件
 
 ```bash
   # 创建Taro组件和对应的scss文件
-  python3 create_taro_scss.py `${rootpath}` `${filepath}`
+  python3 create_taro_scss.py "${rootpath}" "${filepath}"
 ```
 
 - **若选择[B]**:
@@ -36,7 +44,7 @@ description: 根据模板文件创建文件
 
 ```bash
   # 创建Taro组件和对应的less文件
-  python3 create_taro_less.py `${rootpath}` `${filepath}`
+  python3 create_taro_less.py "${rootpath}" "${filepath}"
 ```
 
 - **若选择[C]**:
@@ -44,5 +52,5 @@ description: 根据模板文件创建文件
 
 ```bash
   # 创建Dart文件和对应的StatusfulWidget类
-  python3 create_dart_statusfulwidget.py `${rootpath}` `${filepath}`
+  python3 create_dart_statusfulwidget.py "${rootpath}" "${filepath}"
 ```
