@@ -1,7 +1,9 @@
 export default {
   lazyCodeLoading: "requiredComponents",
   pages: [],
-  subPackages: [],
+  subPackages: [
+    
+  ],
 
   permission: {
     "scope.userLocation": {
