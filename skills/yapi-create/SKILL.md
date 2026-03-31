@@ -1,6 +1,6 @@
 ---
 name: yapi-create
-description: 当用户输入一个包含`https://yapi.lucahealthcare.cn/`的URL地址解读yapi文档时,从yapi接口文档中创建实体类文件
+description: 当用户输入包含`https://yapi.lucahealthcare.cn/`的URL时， 获取yapi接口定义并创建实体类文件
 ---
 
 # 整体流程
@@ -94,6 +94,8 @@ graph LR
 5. swift类需要使用Codable协议
 6. 构建纯粹的实体类，不包含任何业务逻辑和初始化方法
 7. 类名规则,大驼峰拼接,禁止用连接线
+8. 文件名规则,大驼峰拼接,禁止用连接线
+9. 文件名规则,大驼峰拼接,禁止用连接线
    
 # 生成实体类文件
 ## 文件数量控制与初始化
