@@ -1,6 +1,6 @@
 ---
 name: yapi-create
-description: 解读yapi文档,从yapi接口文档中创建实体类文件
+description: 当用户输入一个包含`https://yapi.lucahealthcare.cn/`的URL地址解读yapi文档时,从yapi接口文档中创建实体类文件
 ---
 
 # 整体流程
