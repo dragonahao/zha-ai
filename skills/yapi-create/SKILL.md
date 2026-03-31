@@ -20,12 +20,9 @@ graph LR
 - 输入一个包含`https://yapi.lucahealthcare.cn/`的URL地址,存放在变量`userUrl`
 
 # 加载URL地址并获取接口定义
-
-1. 优先尝试从最外层的项目目录查找`yapi.env`文件(ls 来查找是否存在)
-2. 如果`yapi.env`文件存在，读取用户名称`userName`和密码`userPwd`,保存文件路径到`envPath`
 3. 执行脚本，尝试获取接口定义
 ```bash
-    python3 yapi-create.py "${userUrl}" "${userName}" "${userPwd}"
+    python3 yapi-create.py "${userUrl}"
 ```
 ## 结果处理
 - **失败**:需要启用[登录验证逻辑],完成登录再获取接口定义
@@ -40,8 +37,9 @@ graph LR
 ```bash
     python3 yapi-create.py "${userUrl}" "${userName}" "${userPwd}"
 ```
-
-4. 输出脚本返回的内容,存放在变量`apiDefinition`中
+## 结果处理
+- **失败**:需要启用[登录验证逻辑],完成登录再获取接口定义
+- **成功**:直接把内容存放在变量`apiDefinition`中
 
 
 # 确认输出语言和保存目录
@@ -98,9 +96,9 @@ graph LR
 9. 文件名规则,大驼峰拼接,禁止用连接线
    
 # 生成实体类文件
-## 文件数量控制与初始化
+## 所有的实体类在同一个文件的分配情况
 
-| 语言       | 文件后缀 | 所有类在同一个文件 |
+| 语言       | 文件后缀 | 合并实体类文件 |
 | ---------- | -------- | ------------------ |
 | java       | .java    | 否                 |
 | kotlin     | .kt      | 是                 |
@@ -111,6 +109,35 @@ graph LR
 | python     | .py      | 是                 |
 | typescript | .ts      | 是                 |
 | javascript | .js      | 是                 |
+
+### 所有的实体类在同一个文件的分配举例
+```oc
+//target.h
+@interface RequestBody:NSObject
+@property (nonatomic, strong) A *a;
+@end
+
+@interface A:NSObject
+@end
+
+//target.m
+@interface RequestBody()
+@end
+@interface A()
+@end
+```
+```python
+// target.py
+class RequestBody:
+    def __init__(self, a: A = None):
+        self.a = a
+class A:
+    def __init__(self):
+        self.p=None  
+```
+
+## 字段类型强制转换的分配情况
+- 必须读取[fieldsType.md](references/fieldsType.md)
 
 # 文件生成完成
 

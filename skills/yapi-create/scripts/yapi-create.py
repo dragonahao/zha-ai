@@ -1,6 +1,7 @@
 from playwright.sync_api import sync_playwright
 import json
 import os
+from persistance.account import load_account,save_account,clear_account
 
 def load_env_file(env_path="yapi.env"):
     username = None
@@ -22,8 +23,9 @@ def yapi_bean(user_url, user_name=None, user_pwd=None, env_path="yapi.env"):
     login_url="https://yapi.lucahealthcare.cn/login"
     
     if not user_name or not user_pwd:
-        user_name, user_pwd = load_env_file(env_path)
-    
+        user_name, user_pwd = load_account()
+        if(user_name is None or user_pwd is None):
+            user_name, user_pwd = load_env_file(env_path)
     
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
@@ -35,6 +37,7 @@ def yapi_bean(user_url, user_name=None, user_pwd=None, env_path="yapi.env"):
         # 检查是否需要登录
         if  page.url.count(user_url) == 0:
             if(user_name is None or user_pwd is None):
+                clear_account()
                 return "登录失败，请重新输入账号和密码"
  
             page.locator("a[href=\"/login\"]").first.click()
@@ -44,8 +47,10 @@ def yapi_bean(user_url, user_name=None, user_pwd=None, env_path="yapi.env"):
     
             page.wait_for_timeout(1000)
             if page.url.count(login_url) == 1:
+                clear_account()
                 return "登录失败，请重新输入账号和密码"
             else:
+                save_account(user_name,user_pwd)
                 page.goto(user_url)
                 page.wait_for_timeout(1000)
         
