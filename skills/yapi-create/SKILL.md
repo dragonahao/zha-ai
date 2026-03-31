@@ -61,7 +61,8 @@ graph LR
 
 
 # 解读接口参数
-- 类名规则，大驼峰拼接
+- 类名规则,大驼峰拼接,禁止用连接线
+- 文件名规则,大驼峰拼接,禁止用连接线
   
 ## 1.从`apiDefinition`中解读基本信息
 
@@ -87,10 +88,13 @@ graph LR
 
 # 解读命名规则与约束
 1. 不需要init方法
-2. 对于.m不需要显式写 @synthesize,对于.py不需要to_dict/from_dict方法,对于.dart必需读取模板`reference/fileName.dart`并保留全参数构造方法
-3. swift类需要使用Codable协议
-4. 构建纯粹的实体类，不包含任何业务逻辑和初始化方法
-
+2. 对于.m不需要显式写 @synthesize
+3. 对于.py不需要to_dict/from_dict方法,
+4. 对于.dart必需读取模板`reference/fileName.dart`并保留全参数构造方法，必须使用`reference/fileName.dart`模板格式
+5. swift类需要使用Codable协议
+6. 构建纯粹的实体类，不包含任何业务逻辑和初始化方法
+7. 类名规则,大驼峰拼接,禁止用连接线
+   
 # 生成实体类文件
 ## 文件数量控制与初始化
 
