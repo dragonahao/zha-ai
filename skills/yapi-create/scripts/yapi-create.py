@@ -2,7 +2,7 @@ from playwright.sync_api import sync_playwright
 import json
 import os
 
-def load_env_file(env_path=".yapi-env"):
+def load_env_file(env_path="yapi.env"):
     username = None
     password = None
     if(env_path is None):
@@ -18,7 +18,7 @@ def load_env_file(env_path=".yapi-env"):
                     password = line.split('=', 1)[1].strip()
     return username, password
 
-def yapi_bean(user_url, user_name=None, user_pwd=None, env_path=".yapi-env"):
+def yapi_bean(user_url, user_name=None, user_pwd=None, env_path="yapi.env"):
     login_url="https://yapi.lucahealthcare.cn/login"
     
     if not user_name or not user_pwd:
