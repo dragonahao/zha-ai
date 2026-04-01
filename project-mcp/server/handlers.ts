@@ -1,5 +1,6 @@
 import { CallToolRequestSchema } from "@modelcontextprotocol/sdk/types.js";
 import { ApiUtil } from "./api/ApiUtil";
+import { yapiCreate } from "./api/YapiCreate";
 
 export const handleCallTool = async (request: typeof CallToolRequestSchema._type) => {
   const { name, arguments: args } = request.params;
@@ -29,6 +30,14 @@ export const handleCallTool = async (request: typeof CallToolRequestSchema._type
         break;
       case "api-util-server::api_list":
         result = await ApiUtil.list();
+        break;
+      case "api-util-server::api_create_yapi":
+        result = await yapiCreate(
+          args.url as string,
+          args.userName as string | undefined,
+          args.userPwd as string | undefined,
+          args.envPath as string | undefined
+        );
         break;
       default:
         return {

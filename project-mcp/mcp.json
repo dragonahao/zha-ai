@@ -2,7 +2,7 @@
   "mcpServers": {
     "api-util": {
       "command": "node",
-      "args": ["/Users/ahao/Downloads/model-scale/demo/project-mcp/dist/index.js"]
+      "args": ["/Users/ahao/Downloads/zha-ai/project-mcp/dist/index.js"]
     }
   }
 }
