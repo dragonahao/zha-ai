@@ -11,13 +11,17 @@ graph LR
     E --> F[解读命名规则与约束] -->G[生成实体类文件]
     G --> H[生成完成提示]
 ```
-
+ 
 # 核心任务
 输入yapi接口的URL，完成接口解读，根据保存目录和语言生成实体类文件
+
+---
 
 # 用户输入
 
 - 输入一个包含`https://yapi.lucahealthcare.cn/`的URL地址,存放在变量`userUrl`
+
+---
 
 # 加载URL地址并获取接口定义
 3. 执行脚本，尝试获取接口定义
@@ -27,7 +31,7 @@ graph LR
 ## 结果处理
 - **失败**:需要启用[登录验证逻辑],完成登录再获取接口定义
 - **成功**:直接把内容存放在变量`apiDefinition`中
-
+---
 # 登录验证逻辑
 
 1. **提示输入用户名称**:存放在变量`userName`中
@@ -41,7 +45,7 @@ graph LR
 - **失败**:需要启用[登录验证逻辑],完成登录再获取接口定义
 - **成功**:直接把内容存放在变量`apiDefinition`中
 
-
+---
 # 确认输出语言和保存目录
 
 ## 输入文件保存目录
@@ -57,7 +61,7 @@ graph LR
    ["java","kotlin","swift","oc","dart","python","typescript","javascript"]
 2. 等待用户选择言语
 
-
+---
 # 解读接口参数
 - 类名规则,大驼峰拼接,禁止用连接线
 - 文件名规则,大驼峰拼接,禁止用连接线
@@ -66,6 +70,14 @@ graph LR
 
 - 输出基本信息
 - 解读基本信息中的"接口路径"属性`method`和`method_url`，取`method_url`后两个单词，依次放入变量`UrlSliceA`,`UrlSliceB`
+### 1.1示例
+```md
+接口路径:`/api/a/b/c`
+解读后`UrlSliceA`=`b`，`UrlSliceB`=`c`
+
+接口路径:`/api/a/b/c/{id}`
+解读后`UrlSliceA`=`b`，`UrlSliceB`=`c`
+```
 
 ## 2.从`apiDefinition`中解读请求参数
 
@@ -82,7 +94,7 @@ graph LR
 - 内部子对象名称规则: `data`对象内部子对象名称 `${UrlSliceA}${UrlSliceB}Data${PropertyKey}`
 - 必需阅读[responseBody.md](references/responseBody.md)
 
-
+---
 
 # 解读命名规则与约束
 1. 不需要init方法
@@ -94,7 +106,7 @@ graph LR
 7. 类名规则,大驼峰拼接,禁止用连接线
 8. 文件名规则,大驼峰拼接,禁止用连接线
 9. 文件名规则,大驼峰拼接,禁止用连接线
-   
+---   
 # 生成实体类文件
 ## 所有的实体类在同一个文件的分配情况
 
@@ -138,7 +150,7 @@ class A:
 
 ## 字段类型强制转换的分配情况
 - 必须读取[fieldsType.md](references/fieldsType.md)
-
+---
 # 文件生成完成
 
 - 提示文件生成完成
