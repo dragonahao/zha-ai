@@ -30,8 +30,13 @@
     "sidePanel"
   ],
   "host_permissions": [
-    "<all_urls>"
+    "<all_urls>",
+    "ws://localhost:*",
+    "ws://127.0.0.1:*",
+    "wss://localhost:*",
+    "wss://127.0.0.1:*"
   ],
+ 
   "background": {
     "service_worker": "background/worker.js"
   },
@@ -44,15 +49,15 @@
   ],
   "web_accessible_resources": [
     {
-      "resources": ["content/analyzer.js","shared/bean.js", "shared/ui-common.js", "shared/prompt-select-options.js", "shared/llm-select-options.js", "shared/gemini-executor.js", "shared/deepseek-executor.js", "shared/doubao-executor.js", "shared/claude-executor.js", "documents/ai-ds-db.md"],
+      "resources": ["content/analyzer.js","shared/prompt-ws.js","shared/bean.js", "shared/ui-common.js", "shared/prompt-select-options.js", "shared/llm-select-options.js", "shared/gemini-executor.js", "shared/deepseek-executor.js", "shared/doubao-executor.js", "shared/claude-executor.js", "documents/ai-ds-db.md"],
       "matches": ["<all_urls>"]
     }
   ],
   "commands": {
     "open-side-panel": {
       "suggested_key": {
-        "default": "Ctrl+Shift+S",
-        "mac": "Command+Shift+S"
+        "default": "Ctrl+Shift+K",
+        "mac": "Command+Shift+K"
       },
       "description": "打开zha-lanhu助手侧边栏"
     }

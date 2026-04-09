@@ -88,6 +88,43 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
+  async function connectPromptWs(){
+    console.log("尝试连接WebSocket");
+    if (window.promptWs && window.promptWs.isConnected()) {
+      return;
+    }
+    window.promptWs = new PromptWebSocket('ws://localhost:5200');
+    try{
+      await window.promptWs.connect();
+      addLog('成功连接WebSocket', 'success');
+    }catch(e){
+      addLog('连接WebSocket失败: ' + e.message, 'error');
+    }
+  }
+
+  function sendPrompt(prompt){
+    console.log("发送提示词:", window.promptWs);
+    if (window.promptWs && window.promptWs.isConnected()) {
+      let ok=window.promptWs.send(JSON.stringify({
+        tag:"browser-lh-client",
+        data:prompt
+      }));
+      if(ok){
+        addLog('成功发送提示词', 'success');
+      }else{
+        addLog('发送提示词失败', 'error');
+      }
+    }
+  }
+
+  function closePromptWs(){
+    console.log("关闭WebSocket连接");
+    if (window.promptWs && window.promptWs.isConnected()) {
+      window.promptWs.close();
+      window.promptWs=null;
+    }
+  }
+
   async function startScan() {
     scanButton.disabled = true;
     scanButton.textContent = '扫描中...';
@@ -98,6 +135,8 @@ document.addEventListener('DOMContentLoaded', () => {
     progressFill.style.width = '0%';
     progressText.textContent = '准备开始分析...';
     progressPercent.textContent = '0%';
+
+    connectPromptWs();
 
     addLog('开始扫描分析页面...', 'info');
 
@@ -135,7 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const blob = new Blob([JSON.stringify(results, null, 2)], { type: 'application/json' });
       const url = URL.createObjectURL(blob);
       const timestamp = new Date().toISOString().replace(/[:.]/g, '-');
-
+    
       try {
         // 直接使用传统下载方式，在扩展弹出窗口中更可靠
         const a = document.createElement('a');
@@ -165,6 +204,21 @@ document.addEventListener('DOMContentLoaded', () => {
     exportJSON(true);
   });
 
+  const exportMcpStorageButton = document.getElementById('exportMcpStorageButton');
+  exportMcpStorageButton.addEventListener('click', async () => {
+    if (!analysisResult) return;
+    // 发送提示词
+    // 利用Annotation 来处理一次 analysisResult
+    let results = []
+    for (item of analysisResult["results"]) {
+      let annotation = new window.Annotation()
+      annotation.parse(parseInt(item["dataIndex"]), item["annotations"])
+      results.push(annotation)
+    }
+    sendPrompt(JSON.stringify(results, null, 2));
+    
+  });
+
   // AI按钮点击事件
   async function handleAiClick() {
     // 根据选择的LLM模型调用不同的执行器
@@ -191,4 +245,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const googleAiButton = document.getElementById('googleAiButton');
   googleAiButton.addEventListener('click', handleAiClick);
+
+  window.addEventListener('beforeunload', () => {
+     closePromptWs();
+  });
 });

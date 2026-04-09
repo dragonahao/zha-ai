@@ -1,8 +1,9 @@
-import { CallToolRequestSchema } from "@modelcontextprotocol/sdk/types.js";
+import { type CallToolRequest } from "@modelcontextprotocol/sdk/types.js";
 import { ApiUtil } from "./api/ApiUtil";
 import { yapiCreate } from "./api/YapiCreate";
+import { LHUtil } from "./api/LHUtil";
 
-export const handleCallTool = async (request: typeof CallToolRequestSchema._type) => {
+export const handleCallTool = async (request: CallToolRequest) => {
   const { name, arguments: args } = request.params;
 
   if (!args || !name) {
@@ -16,28 +17,31 @@ export const handleCallTool = async (request: typeof CallToolRequestSchema._type
     let result;
 
     switch (name) {
-      case "api-util-server::api_create":
+      case "api_create":
         result = await ApiUtil.create(args.url as string);
         break;
-      case "api-util-server::api_get":
+      case "api_get":
         result = await ApiUtil.get(args.url as string);
         break;
-      case "api-util-server::api_update":
+      case "api_update":
         result = await ApiUtil.update(args.url as string);
         break;
-      case "api-util-server::api_delete":
+      case "api_delete":
         result = await ApiUtil.delete(args.url as string);
         break;
-      case "api-util-server::api_list":
+      case "api_list":
         result = await ApiUtil.list();
         break;
-      case "api-util-server::api_create_yapi":
+      case "api_create_yapi":
         result = await yapiCreate(
           args.url as string,
           args.userName as string | undefined,
           args.userPwd as string | undefined,
-          args.envPath as string | undefined
+          args.envPath as string | undefined,
         );
+        break;
+      case "api_lh_page":
+        result = await LHUtil.getLHPage();
         break;
       default:
         return {
