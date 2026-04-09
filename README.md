@@ -19,3 +19,23 @@ ai技术
   }
 }
 ```
+```mermaid
+sequenceDiagram
+    participant Browser
+    participant Server
+    participant MCP
+
+    Browser->>Server: 连接
+    Server-->>Browser: 确认连接
+
+    Note over Browser: 访问LH窗口
+
+    Browser->>Server: 点击MCP存储按钮
+    Note over Server: 存储LH窗口信息
+
+    MCP->>Server: 连接
+    Server-->>MCP: 确认连接
+    
+    MCP->>Server: 调用api_lh_page
+    Server-->>MCP: 返回LH窗口信息
+```
