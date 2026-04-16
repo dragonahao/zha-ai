@@ -6,9 +6,8 @@ def split_path(rootpath: str, filepath: str):
     """
     拆分文件路径为目录路径 and 文件名
     """
-    absolutePath = os.path.join(rootpath, filepath)
-    allpaths = absolutePath.split(os.path.sep)
-    parentPath = os.path.sep.join(allpaths[0:-1])
+    allpaths = filepath.split(os.path.sep)
+    parentPath = os.path.sep.join([rootpath] + allpaths[0:-1])
 
     fileName = allpaths[-1]
  
@@ -32,7 +31,7 @@ def generate_page_template(parentPath: str, fileName: str):
 
     if not os.path.exists(os.path.join(parentPath, fileNameLogic)):
         template_path = os.path.join(template_dir, "fileNameLogic.dart")
-        if not os.path.exists(template_path):
+        if os.path.exists(template_path):
             with open(template_path, "r", encoding="utf-8") as templateLogicFile:
                 templateLogic = templateLogicFile.read()
                 templateLogic = templateLogic.replace("fileName", fileName)
@@ -41,7 +40,7 @@ def generate_page_template(parentPath: str, fileName: str):
 
     if not os.path.exists(os.path.join(parentPath, fileNameState)):
         template_path = os.path.join(template_dir, "fileNameState.dart")
-        if not os.path.exists(template_path):
+        if os.path.exists(template_path):
             with open(template_path, "r", encoding="utf-8") as templateStateFile:
                 templateState = templateStateFile.read()
                 templateState = templateState.replace("fileName", fileName)
@@ -50,7 +49,7 @@ def generate_page_template(parentPath: str, fileName: str):
 
     if not os.path.exists(os.path.join(parentPath, fileNamePage)):
         template_path = os.path.join(template_dir, "fileNamePage.dart")
-        if not os.path.exists(template_path):
+        if os.path.exists(template_path):
             with open(template_path, "r", encoding="utf-8") as templatePageFile:
                 templatePage = templatePageFile.read()
                 templatePage = templatePage.replace("fileName", fileName)
