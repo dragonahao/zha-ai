@@ -7,7 +7,7 @@ class fileNamePage extends StatefulWidget {
 }
 
 class _fileNamePageState extends State<fileNamePage> {
-  final logic = filenameLogic();
+  final logic = fileNameLogic();
 
   @override
   void initState() {
