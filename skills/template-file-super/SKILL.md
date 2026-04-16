@@ -29,6 +29,11 @@ description: 根据模板文件创建文件
 - [B] Taro+less
 - [C] Dart+StatusfulWidget
 
+## 文件结构
+- SKILL.md 所在目录: `{skill_path}`
+- 脚本位置: `{skill_path}/scripts/create_taro_scss.py`
+- 执行时需要先 cd 到 `{skill_path}`
+  
 ## 2.处理逻辑定义
 
 - **若选择[A]**:
