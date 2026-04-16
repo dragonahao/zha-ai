@@ -36,7 +36,7 @@ description: 根据模板文件创建文件
 
 ```bash
   # 创建Taro组件和对应的scss文件
-  python3 create_taro_scss.py "${rootpath}" "${filepath}"
+  python3 scripts/create_taro_scss.py "${rootpath}" "${filepath}"
 ```
 
 - **若选择[B]**:
@@ -44,7 +44,7 @@ description: 根据模板文件创建文件
 
 ```bash
   # 创建Taro组件和对应的less文件
-  python3 create_taro_less.py "${rootpath}" "${filepath}"
+  python3 scripts/create_taro_less.py "${rootpath}" "${filepath}"
 ```
 
 - **若选择[C]**:
@@ -52,5 +52,5 @@ description: 根据模板文件创建文件
 
 ```bash
   # 创建Dart文件和对应的StatusfulWidget类
-  python3 create_dart_statusfulwidget.py "${rootpath}" "${filepath}"
+  python3 scripts/create_dart_statusfulwidget.py "${rootpath}" "${filepath}"
 ```
