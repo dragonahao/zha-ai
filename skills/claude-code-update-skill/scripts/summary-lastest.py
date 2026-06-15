@@ -25,27 +25,38 @@ async def get_latest_update_summary():
             # Format as markdown table
             table = "| 版本范围 | 摘要 |\n|--------|------|\n"
             
+            column_split="<br>"
+            
             # Iterate through all update elements
             for update in update_elements:
                 # Get direct children divs only (using CSS selector "> div")
                 child_divs = await update.locator('> div').all()
                 
                 if len(child_divs) >= 2:
-                    # Extract content from first two direct child divs
-                    col1 = await child_divs[0].text_content()
+                    # Extract content from first div (left column)
+                    col1_elem = child_divs[0]
+                    
+                    # Extract Week label
+                    week_label = await col1_elem.locator('[data-component-part="update-label"]').text_content()
+                    week_label = week_label.strip() if week_label else ''
+                    
+                    # Extract version range
+                    version_range = await col1_elem.locator('[data-component-part="update-tag"]').text_content()
+                    version_range = version_range.strip() if version_range else ''
+                    
+                    # Extract date range
+                    date_range = await col1_elem.locator('[data-component-part="update-description"]').text_content()
+                    date_range = date_range.strip() if date_range else ''
+                    
+                    # Format col1 with line breaks
+                    col1 = f"{week_label}{column_split}{version_range}{column_split}{date_range}"
+                    
+                    # Extract content from second div (right column)
                     col2 = await child_divs[1].text_content()
-                    
-                    # Clean and format col1 - remove extra whitespace and join with line breaks
-                    col1 = col1.strip() if col1 else 'N/A'
-                    col1 = re.sub(r'\s+', ' ', col1)
-                    col1 = col1.replace(' ', '<br>')
-                    
-                    # Clean col2 - remove extra whitespace
                     col2 = col2.strip() if col2 else 'N/A'
                     col2 = re.sub(r'\s+', ' ', col2)
                     
                     table += f"| {col1} | {col2} |\n"
-                    break
             
             return table
         
